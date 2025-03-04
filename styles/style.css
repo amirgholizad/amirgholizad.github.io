@@ -360,6 +360,7 @@ article .icon {
 }
 
 .project-video-container {
+  margin: 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

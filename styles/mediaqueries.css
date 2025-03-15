@@ -1,7 +1,7 @@
 @media screen and (max-width: 1400px) {
   #profile {
-    height: 83vh;
-    margin-bottom: 6rem;
+    height: 60vh;
+    margin-bottom: 1rem;
   }
   .about-containers {
     flex-wrap: wrap;
@@ -13,6 +13,10 @@
 }
 
 @media screen and (max-width: 1200px) {
+  #profile {
+    height: 60vh;
+    margin-bottom: 1rem;
+  }
   #desktop-nav {
     display: none;
   }
@@ -53,8 +57,8 @@
     height: 40vh;
   }
   #profile {
-    height: 83vh;
-    margin-bottom: 0;
+    height: 60vh;
+    margin-bottom: 1rem;
   }
   article {
     font-size: 1rem;

@@ -385,9 +385,10 @@ article .icon {
   display: flex;
   justify-content: center;
   align-items: start;
-  img {
-    height: 20px;
-  }
+}
+
+.project-video-content__link img {
+  height: 20px;
 }
 
 .color-container {

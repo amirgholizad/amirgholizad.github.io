@@ -34,60 +34,60 @@
     <section class="home" id="home">
       <div class="tiles-container">
         <!-- Bio Tile -->
-        <a href="#bio" class="tile tile-bio">
+        <button class="tile tile-bio" data-overlay="bio">
           <i class="fas fa-user"></i>
           <h2>Bio</h2>
           <p>Learn more about me</p>
           <span class="tile-arrow">→</span>
-        </a>
+        </button>
 
         <!-- Projects Tile -->
-        <a href="#projects" class="tile tile-projects">
+        <button class="tile tile-projects" data-overlay="projects">
           <i class="fas fa-briefcase"></i>
           <h2>Projects</h2>
           <p>Things I've built</p>
           <span class="tile-arrow">→</span>
-        </a>
+        </button>
 
         <!-- Links Tile (Top Right) -->
-        <a href="#contact" class="tile tile-links-top">
+        <button class="tile tile-links-top" data-overlay="links">
           <i class="fas fa-link"></i>
           <h2>Links</h2>
           <p>Find me online</p>
           <span class="tile-arrow">→</span>
-        </a>
+        </button>
 
         <!-- Experiences Tile -->
-        <a href="#experiences" class="tile tile-experiences">
+        <button class="tile tile-experiences" data-overlay="experiences">
           <i class="fas fa-star"></i>
           <h2>Experiences</h2>
           <p>My journey so far</p>
           <span class="tile-arrow">→</span>
-        </a>
+        </button>
 
         <!-- Hobbies Tile -->
-        <a href="#hobbies" class="tile tile-hobbies">
+        <button class="tile tile-hobbies" data-overlay="hobbies">
           <i class="fas fa-camera"></i>
           <h2>Hobbies</h2>
           <p>Things I enjoy</p>
           <span class="tile-arrow">→</span>
-        </a>
+        </button>
 
         <!-- Stack Tile -->
-        <a href="#stack" class="tile tile-stack">
+        <button class="tile tile-stack" data-overlay="stack">
           <i class="fas fa-code"></i>
           <h2>Stack</h2>
           <p>Technologies I use</p>
           <span class="tile-arrow">→</span>
-        </a>
+        </button>
 
         <!-- Resources/Links Tile -->
-        <a href="#resources" class="tile tile-resources tile-span-2">
+        <button class="tile tile-resources tile-span-2" data-overlay="resources">
           <i class="fas fa-link"></i>
           <h2>Resources</h2>
           <p>Useful links & things</p>
           <span class="tile-arrow">→</span>
-        </a>
+        </button>
 
         <!-- CV Tile -->
         <a href="https://docs.google.com/document/d/1qCVSKiO-MxrDRohy1NttNMQs_buzbETPfRO74H6iMQw/edit?usp=sharing" class="tile tile-cv" target="_blank" rel="noopener noreferrer">
@@ -99,266 +99,289 @@
       </div>
     </section>
 
-    <!-- Bio Section -->
-    <section id="bio" class="content-section bio-section">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="bio-content">
-          <div class="bio-text">
-            <p>
-              I'm a Physicist and Software Engineer with a Master's degree in Physics from Memorial University of Newfoundland and a Software Engineering Diploma from BrainStation Academy.
-            </p>
-            <p>
-              Experienced in developing full-stack web applications and applying analytical problem-solving techniques to create innovative solutions.
-            </p>
-            <p>
-              Passionate about bridging the gap between science and technology to build impactful, scalable systems.
-            </p>
-            <p>
-              <a href="https://www.credly.com/badges/6d3d2ced-9b76-43b9-9b17-010351233132/linked_in_profile" target="_blank" rel="noopener noreferrer">
-                ⭐️ AWS Certified Cloud Practitioner
-              </a>
-            </p>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay">
+      <div class="overlay-backdrop"></div>
+      <div class="overlay-panel">
+        <button class="overlay-close" type="button" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="overlay-content" id="overlay-content"></div>
+      </div>
+    </div>
+
+    <!-- Content Templates (hidden) -->
+
+    <!-- Bio Template -->
+    <template id="tpl-bio">
+      <h2 class="section-title">About Me</h2>
+      <div class="bio-content">
+        <div class="bio-text">
+          <p>
+            I'm a Physicist and Software Engineer with a Master's degree in Physics from Memorial University of Newfoundland and a Software Engineering Diploma from BrainStation Academy.
+          </p>
+          <p>
+            Experienced in developing full-stack web applications and applying analytical problem-solving techniques to create innovative solutions.
+          </p>
+          <p>
+            Passionate about bridging the gap between science and technology to build impactful, scalable systems.
+          </p>
+          <p>
+            <a href="https://www.credly.com/badges/6d3d2ced-9b76-43b9-9b17-010351233132/linked_in_profile" target="_blank" rel="noopener noreferrer">
+              ⭐️ AWS Certified Cloud Practitioner
+            </a>
+          </p>
+        </div>
+        <div class="bio-image">
+          <img src="./assets/images/profile_pic2.png" alt="Amir Gholizad" />
+        </div>
+      </div>
+    </template>
+
+    <!-- Experiences Template -->
+    <template id="tpl-experiences">
+      <h2 class="section-title">Experiences</h2>
+      <div class="experiences-grid">
+        <div class="experience-card">
+          <i class="fas fa-briefcase"></i>
+          <h3>Professional</h3>
+          <p>Software Engineering</p>
+        </div>
+        <div class="experience-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Education</h3>
+          <p>B.Sc., M.Sc. Physics<br />Software Engineering Diploma</p>
+        </div>
+      </div>
+    </template>
+
+    <!-- Hobbies Template -->
+    <template id="tpl-hobbies">
+      <h2 class="section-title">Hobbies</h2>
+      <div class="hobbies-grid">
+        <div class="hobby-card">
+          <i class="fas fa-mountain"></i>
+          <h3>Hiking</h3>
+          <p>Exploring nature and outdoor trails</p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-gamepad"></i>
+          <h3>Gaming</h3>
+          <p>Video games and interactive experiences</p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-utensils"></i>
+          <h3>Cooking</h3>
+          <p>Culinary adventures and food exploration</p>
+        </div>
+      </div>
+    </template>
+
+    <!-- Stack Template -->
+    <template id="tpl-stack">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="skills-columns">
+        <div class="skills-column">
+          <h3>Web Development</h3>
+          <ul class="skills-list">
+            <li><span class="skill-badge">HTML</span></li>
+            <li><span class="skill-badge">CSS</span></li>
+            <li><span class="skill-badge">JavaScript</span></li>
+            <li><span class="skill-badge">TypeScript</span></li>
+            <li><span class="skill-badge">React.js</span></li>
+            <li><span class="skill-badge">Node.js</span></li>
+            <li><span class="skill-badge">Express.js</span></li>
+            <li><span class="skill-badge">Next.js</span></li>
+            <li><span class="skill-badge">Knex.js</span></li>
+            <li><span class="skill-badge">Sass</span></li>
+            <li><span class="skill-badge">TailwindCSS</span></li>
+            <li><span class="skill-badge">FastAPI</span></li>
+            <li><span class="skill-badge">PostgreSQL</span></li>
+            <li><span class="skill-badge">MySQL</span></li>
+            <li><span class="skill-badge">JSON</span></li>
+            <li><span class="skill-badge">Nginx</span></li>
+            <li><span class="skill-badge">AWS</span></li>
+            <li><span class="skill-badge">Docker</span></li>
+          </ul>
+        </div>
+        <div class="skills-column">
+          <h3>Other Skills</h3>
+          <ul class="skills-list">
+            <li><span class="skill-badge">Git</span></li>
+            <li><span class="skill-badge">Bash</span></li>
+            <li><span class="skill-badge">Linux</span></li>
+            <li><span class="skill-badge">TensorFlow</span></li>
+            <li><span class="skill-badge">PyTorch</span></li>
+            <li><span class="skill-badge">Scikit-learn</span></li>
+            <li><span class="skill-badge">NumPy</span></li>
+            <li><span class="skill-badge">Pandas</span></li>
+            <li><span class="skill-badge">Matplotlib</span></li>
+            <li><span class="skill-badge">Seaborn</span></li>
+            <li><span class="skill-badge">Jira</span></li>
+            <li><span class="skill-badge">Agile</span></li>
+          </ul>
+        </div>
+      </div>
+    </template>
+
+    <!-- Projects Template -->
+    <template id="tpl-projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-videos">
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/U0wUD3Z-4UI"
+            title="Nitro Coffee Shop Website"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <div class="project-info">
+            <h3>Nitro Coffee Shop Website</h3>
+            <p>Welcome to the Coffee Shop Project, a hands-on journey to mastering web development basics and beyond! Built as the first project for BrainStation Software Engineering bootcamp.</p>
+            <p class="tech-stack">Tech: HTML, CSS, SCSS</p>
+            <a href="https://github.com/amirgholizad/amir-gholizad-coffeeshop" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
           </div>
-          <div class="bio-image">
-            <img src="./assets/images/profile_pic2.png" alt="Amir Gholizad" />
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/Sym2u8oD-wM"
+            title="MOODY WEAR Website"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <div class="project-info">
+            <h3>MOODY WEAR Website</h3>
+            <p>Personalized clothing recommendations based on local weather conditions. Uses OpenAI API to generate outfit suggestions and outfit images.</p>
+            <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript</p>
+            <a href="https://github.com/amirgholizad/BrainStation_Hackathon/tree/add-feature-ai" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/wkJO7vA7ZGs"
+            title="BANDSITE Website"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <div class="project-info">
+            <h3>BANDSITE Website</h3>
+            <p>A responsive and interactive website for an up-and-coming band. Completed in three sprints during BrainStation bootcamp, integrating dynamic functionality and API-driven content.</p>
+            <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript</p>
+            <a href="https://github.com/amirgholizad/amir-gholizad-bandsite" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/cD5DdkkP3G8"
+            title="Snaps Website"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <div class="project-info">
+            <h3>Snaps Website</h3>
+            <p>Building a custom API service replicating mock API functionality. Structured with separate client-side and server-side repositories for seamless integration.</p>
+            <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript, React.js, Node.js, Express.js</p>
+            <a href="https://github.com/amirgholizad/amir-gholizad-snaps" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/GetRndBU4KQ"
+            title="BEAT Website"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <div class="project-info">
+            <h3>BEAT Website</h3>
+            <p>A platform for Econophysicists and Financial Markets enthusiasts providing computational services: articles, technical indicators, and interactive charting for financial asset monitoring.</p>
+            <p class="tech-stack">Tech: SCSS, JavaScript, React.js, Node.js, Express.js, MySQL, Multer, Supabase</p>
+            <a href="https://github.com/amirgholizad/BEAT" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/-NHROORAmkc"
+            title="Instock Website"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <div class="project-info">
+            <h3>Instock Website</h3>
+            <p>An Inventory Management System with full CRUD operations for warehouses and inventories. Data stored in MySQL with foreign key relationships.</p>
+            <p class="tech-stack">Tech: SCSS, JavaScript, React.js, Node.js, Express.js, MySQL</p>
+            <a href="https://github.com/amirgholizad/bug-busters-instock-server" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Experiences Section -->
-    <section id="experiences" class="content-section experiences-section">
-      <div class="container">
-        <h2 class="section-title">Experiences</h2>
-        <div class="experiences-grid">
-          <div class="experience-card">
-            <i class="fas fa-briefcase"></i>
-            <h3>Professional</h3>
-            <p>Software Engineering</p>
-          </div>
-          <div class="experience-card">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Education</h3>
-            <p>B.Sc., M.Sc. Physics<br />Software Engineering Diploma</p>
-          </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="./assets/images/project-1.jpg" alt="CRUD Project" />
+          <h3>CRUD (FastAPI + PostgreSQL)</h3>
+          <a href="https://github.com/AmirGholizad/AmirG.dev-CRUD" target="_blank" rel="noopener noreferrer" class="project-card-link">View on GitHub →</a>
+        </div>
+        <div class="project-card">
+          <img src="./assets/images/project-2.jpg" alt="Sentiment Analysis" />
+          <h3>Sentiment Analysis</h3>
+          <a href="https://github.com/AmirGholizad/imdb_sentiment_analysis" target="_blank" rel="noopener noreferrer" class="project-card-link">View on GitHub →</a>
+        </div>
+        <div class="project-card">
+          <img src="./assets/images/project-3.jpg" alt="Dimensionality Reduction" />
+          <h3>Dimensionality Reduction</h3>
+          <a href="https://github.com/AmirGholizad/tails_of_distributions" target="_blank" rel="noopener noreferrer" class="project-card-link">View on GitHub →</a>
         </div>
       </div>
-    </section>
+    </template>
 
-    <!-- Hobbies Section -->
-    <section id="hobbies" class="content-section hobbies-section">
-      <div class="container">
-        <h2 class="section-title">Hobbies</h2>
-        <div class="hobbies-grid">
-          <div class="hobby-card">
-            <i class="fas fa-mountain"></i>
-            <h3>Hiking</h3>
-            <p>Exploring nature and outdoor trails</p>
-          </div>
-          <div class="hobby-card">
-            <i class="fas fa-gamepad"></i>
-            <h3>Gaming</h3>
-            <p>Video games and interactive experiences</p>
-          </div>
-          <div class="hobby-card">
-            <i class="fas fa-utensils"></i>
-            <h3>Cooking</h3>
-            <p>Culinary adventures and food exploration</p>
-          </div>
+    <!-- Links/Resources Template -->
+    <template id="tpl-links">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <a href="mailto:a.m.gholizad@gmail.com">a.m.gholizad@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/amirgholizad/" target="_blank" rel="noopener noreferrer">Connect with me</a>
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-github"></i>
+          <h3>GitHub</h3>
+          <a href="https://github.com/AmirGholizad" target="_blank" rel="noopener noreferrer">View my code</a>
         </div>
       </div>
-    </section>
+    </template>
 
-    <!-- Stack Section -->
-    <section id="stack" class="content-section stack-section">
-      <div class="container">
-        <h2 class="section-title">Tech Stack</h2>
-        <div class="skills-columns">
-          <div class="skills-column">
-            <h3>Web Development</h3>
-            <ul class="skills-list">
-              <li><span class="skill-badge">HTML</span></li>
-              <li><span class="skill-badge">CSS</span></li>
-              <li><span class="skill-badge">JavaScript</span></li>
-              <li><span class="skill-badge">TypeScript</span></li>
-              <li><span class="skill-badge">React.js</span></li>
-              <li><span class="skill-badge">Node.js</span></li>
-              <li><span class="skill-badge">Express.js</span></li>
-              <li><span class="skill-badge">Next.js</span></li>
-              <li><span class="skill-badge">Knex.js</span></li>
-              <li><span class="skill-badge">Sass</span></li>
-              <li><span class="skill-badge">TailwindCSS</span></li>
-              <li><span class="skill-badge">FastAPI</span></li>
-              <li><span class="skill-badge">PostgreSQL</span></li>
-              <li><span class="skill-badge">MySQL</span></li>
-              <li><span class="skill-badge">JSON</span></li>
-              <li><span class="skill-badge">Nginx</span></li>
-              <li><span class="skill-badge">AWS</span></li>
-              <li><span class="skill-badge">Docker</span></li>
-            </ul>
-          </div>
-          <div class="skills-column">
-            <h3>Other Skills</h3>
-            <ul class="skills-list">
-              <li><span class="skill-badge">Git</span></li>
-              <li><span class="skill-badge">Bash</span></li>
-              <li><span class="skill-badge">Linux</span></li>
-              <li><span class="skill-badge">TensorFlow</span></li>
-              <li><span class="skill-badge">PyTorch</span></li>
-              <li><span class="skill-badge">Scikit-learn</span></li>
-              <li><span class="skill-badge">NumPy</span></li>
-              <li><span class="skill-badge">Pandas</span></li>
-              <li><span class="skill-badge">Matplotlib</span></li>
-              <li><span class="skill-badge">Seaborn</span></li>
-              <li><span class="skill-badge">Jira</span></li>
-              <li><span class="skill-badge">Agile</span></li>
-            </ul>
-          </div>
+    <!-- Resources Template (same as links for now) -->
+    <template id="tpl-resources">
+      <h2 class="section-title">Resources & Links</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <a href="mailto:a.m.gholizad@gmail.com">a.m.gholizad@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/amirgholizad/" target="_blank" rel="noopener noreferrer">Connect with me</a>
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-github"></i>
+          <h3>GitHub</h3>
+          <a href="https://github.com/AmirGholizad" target="_blank" rel="noopener noreferrer">View my code</a>
         </div>
       </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="content-section projects-section">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-
-        <div class="projects-videos">
-          <div class="project-video">
-            <iframe
-              src="https://www.youtube.com/embed/U0wUD3Z-4UI"
-              title="Nitro Coffee Shop Website"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <div class="project-info">
-              <h3>Nitro Coffee Shop Website</h3>
-              <p>Welcome to the Coffee Shop Project, a hands-on journey to mastering web development basics and beyond! Built as the first project for BrainStation Software Engineering bootcamp.</p>
-              <p class="tech-stack">Tech: HTML, CSS, SCSS</p>
-              <a href="https://github.com/amirgholizad/amir-gholizad-coffeeshop" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-
-          <div class="project-video">
-            <iframe
-              src="https://www.youtube.com/embed/Sym2u8oD-wM"
-              title="MOODY WEAR Website"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <div class="project-info">
-              <h3>MOODY WEAR Website</h3>
-              <p>Personalized clothing recommendations based on local weather conditions. Uses OpenAI API to generate outfit suggestions and outfit images.</p>
-              <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript</p>
-              <a href="https://github.com/amirgholizad/BrainStation_Hackathon/tree/add-feature-ai" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-
-          <div class="project-video">
-            <iframe
-              src="https://www.youtube.com/embed/wkJO7vA7ZGs"
-              title="BANDSITE Website"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <div class="project-info">
-              <h3>BANDSITE Website</h3>
-              <p>A responsive and interactive website for an up-and-coming band. Completed in three sprints during BrainStation bootcamp, integrating dynamic functionality and API-driven content.</p>
-              <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript</p>
-              <a href="https://github.com/amirgholizad/amir-gholizad-bandsite" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-
-          <div class="project-video">
-            <iframe
-              src="https://www.youtube.com/embed/cD5DdkkP3G8"
-              title="Snaps Website"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <div class="project-info">
-              <h3>Snaps Website</h3>
-              <p>Building a custom API service replicating mock API functionality. Structured with separate client-side and server-side repositories for seamless integration.</p>
-              <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript, React.js, Node.js, Express.js</p>
-              <a href="https://github.com/amirgholizad/amir-gholizad-snaps" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-
-          <div class="project-video">
-            <iframe
-              src="https://www.youtube.com/embed/GetRndBU4KQ"
-              title="BEAT Website"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <div class="project-info">
-              <h3>BEAT Website</h3>
-              <p>A platform for Econophysicists and Financial Markets enthusiasts providing computational services: articles, technical indicators, and interactive charting for financial asset monitoring.</p>
-              <p class="tech-stack">Tech: SCSS, JavaScript, React.js, Node.js, Express.js, MySQL, Multer, Supabase</p>
-              <a href="https://github.com/amirgholizad/BEAT" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-
-          <div class="project-video">
-            <iframe
-              src="https://www.youtube.com/embed/-NHROORAmkc"
-              title="Instock Website"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <div class="project-info">
-              <h3>Instock Website</h3>
-              <p>An Inventory Management System with full CRUD operations for warehouses and inventories. Data stored in MySQL with foreign key relationships.</p>
-              <p class="tech-stack">Tech: SCSS, JavaScript, React.js, Node.js, Express.js, MySQL</p>
-              <a href="https://github.com/amirgholizad/bug-busters-instock-server" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="projects-grid">
-          <div class="project-card">
-            <img src="./assets/images/project-1.jpg" alt="CRUD Project" />
-            <h3>CRUD (FastAPI + PostgreSQL)</h3>
-            <a href="https://github.com/AmirGholizad/AmirG.dev-CRUD" target="_blank" rel="noopener noreferrer" class="project-card-link">View on GitHub →</a>
-          </div>
-          <div class="project-card">
-            <img src="./assets/images/project-2.jpg" alt="Sentiment Analysis" />
-            <h3>Sentiment Analysis</h3>
-            <a href="https://github.com/AmirGholizad/imdb_sentiment_analysis" target="_blank" rel="noopener noreferrer" class="project-card-link">View on GitHub →</a>
-          </div>
-          <div class="project-card">
-            <img src="./assets/images/project-3.jpg" alt="Dimensionality Reduction" />
-            <h3>Dimensionality Reduction</h3>
-            <a href="https://github.com/AmirGholizad/tails_of_distributions" target="_blank" rel="noopener noreferrer" class="project-card-link">View on GitHub →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact/Resources Section -->
-    <section id="resources" class="content-section contact-section">
-      <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <h3>Email</h3>
-            <a href="mailto:a.m.gholizad@gmail.com">a.m.gholizad@gmail.com</a>
-          </div>
-          <div class="contact-card">
-            <i class="fab fa-linkedin"></i>
-            <h3>LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/amirgholizad/" target="_blank" rel="noopener noreferrer">Connect with me</a>
-          </div>
-          <div class="contact-card">
-            <i class="fab fa-github"></i>
-            <h3>GitHub</h3>
-            <a href="https://github.com/AmirGholizad" target="_blank" rel="noopener noreferrer">View my code</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    </template>
 
     <!-- Footer -->
     <footer class="footer">

@@ -82,8 +82,16 @@
 /* MOBILE SCREENS */
 
 @media screen and (max-width: 767px) {
+  body {
+    overflow: hidden;
+  }
+
   .header {
     padding: 1rem;
+  }
+
+  .header-profile {
+    height: 50px;
   }
 
   .header-left h1 {
@@ -102,10 +110,20 @@
     font-size: 1.2rem;
   }
 
+  .home {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   .tiles-container {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
+    min-height: 100%;
+  }
+
+  .tile {
+    min-height: 120px !important;
   }
 
   .tile-span-2 {
@@ -221,8 +239,16 @@
 /* SMALL MOBILE SCREENS */
 
 @media screen and (max-width: 479px) {
+  body {
+    overflow: hidden;
+  }
+
   .header {
     padding: 0.75rem;
+  }
+
+  .header-profile {
+    height: 45px;
   }
 
   .header-left h1 {
@@ -241,13 +267,20 @@
     font-size: 1rem;
   }
 
+  .home {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   .tiles-container {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
+    min-height: 100%;
   }
 
   .tile {
+    min-height: 110px !important;
     padding: 0.75rem !important;
   }
 

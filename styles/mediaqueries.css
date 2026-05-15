@@ -1,6 +1,6 @@
 /* TABLET SCREENS */
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .header {
     padding: 1.5rem;
     flex-direction: column;
@@ -16,22 +16,24 @@
     font-size: 0.9rem;
   }
 
-  .home {
-    padding: 1.2rem;
-    gap: 1.2rem;
-  }
-
   .tiles-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
+  }
+
+  .tile-span-2 {
+    grid-column: span 1;
+  }
+
+  .tile-certificates {
+    grid-column: span 2;
   }
 
   .tile h2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .tile p {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   .tile i {
@@ -51,7 +53,8 @@
 
   .experiences-grid,
   .hobbies-grid,
-  .contact-grid {
+  .contact-grid,
+  .certificates-grid {
     grid-template-columns: 1fr;
   }
 
@@ -78,7 +81,7 @@
 
 /* MOBILE SCREENS */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .header {
     padding: 1rem;
   }
@@ -99,44 +102,37 @@
     font-size: 1.2rem;
   }
 
-  .home {
-    padding: 1rem;
-    gap: 1rem;
-  }
-
   .tiles-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    grid-auto-rows: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
   }
 
   .tile-span-2 {
-    grid-column: span 1;
+    grid-column: auto;
   }
 
   .tile {
-    padding: 1rem;
+    padding: 1rem !important;
   }
 
   .tile i {
-    font-size: 1.8rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.15rem;
   }
 
   .tile h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .tile p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .overlay-panel {
     width: 95vw;
     max-width: 100%;
     max-height: 90vh;
-    padding: 2rem 1.25rem 1.25rem;
-    border-radius: 8px;
   }
 
   .overlay-close {
@@ -224,7 +220,7 @@
 
 /* SMALL MOBILE SCREENS */
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 479px) {
   .header {
     padding: 0.75rem;
   }
@@ -245,39 +241,33 @@
     font-size: 1rem;
   }
 
-  .home {
-    padding: 0.75rem;
-    gap: 0.75rem;
-  }
-
   .tiles-container {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    grid-auto-rows: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
   }
 
   .tile {
-    padding: 0.75rem;
-    border-radius: 6px;
+    padding: 0.75rem !important;
   }
 
   .tile i {
-    font-size: 1.5rem;
-    margin-bottom: 0.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.1rem;
   }
 
   .tile h2 {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .tile p {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .tile-arrow {
-    bottom: 0.75rem;
-    right: 0.75rem;
-    font-size: 1.2rem;
+    bottom: 0.3rem;
+    right: 0.3rem;
+    font-size: 1rem;
   }
 
   .overlay-panel {

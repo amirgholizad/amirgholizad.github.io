@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amir Gholizad – Software Developer</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/g.ico" />
+    <title>AmirG! – Software Developer</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./assets/icons/avatar_circle.ico"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -16,9 +20,16 @@
   <body>
     <!-- Header -->
     <header class="header">
-      <div class="header-left">
-        <h1>Amir G!</h1>
-        <p>Physicist • Software Developer</p>
+      <div class="header-profile">
+        <img
+          class="header-profile-pic"
+          src="./assets/images/profile_pic3.png"
+          alt="AmirG!"
+        />
+        <div class="header-left">
+          <h1>AmirG!</h1>
+          <p>Physicist • Software Developer</p>
+        </div>
       </div>
       <div class="header-socials">
         <a
@@ -93,10 +104,7 @@
         </button>
 
         <!-- Resources/Links Tile -->
-        <button
-          class="tile tile-resources tile-span-2"
-          data-overlay="resources"
-        >
+        <button class="tile tile-resources" data-overlay="resources">
           <i class="fas fa-link"></i>
           <h2>Resources</h2>
           <p>Useful links & things</p>
@@ -115,6 +123,14 @@
           <p>Download my resume</p>
           <span class="tile-arrow">→</span>
         </a>
+
+        <!-- Certificates Tile -->
+        <button class="tile tile-certificates" data-overlay="certificates">
+          <i class="fas fa-certificate"></i>
+          <h2>Certificates</h2>
+          <p>Credentials & achievements</p>
+          <span class="tile-arrow">→</span>
+        </button>
       </div>
     </section>
 
@@ -150,18 +166,16 @@
             Passionate about bridging the gap between science and technology to
             build impactful, scalable systems.
           </p>
-          <p>
-            <a
-              href="https://www.credly.com/badges/6d3d2ced-9b76-43b9-9b17-010351233132/linked_in_profile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ⭐️ AWS Certified Cloud Practitioner
-            </a>
-          </p>
         </div>
         <div class="bio-image">
-          <img src="./assets/images/profile_pic3.png" alt="Amir Gholizad" />
+          <img src="./assets/images/hackathon.jpg" alt="Amir Gholizad" />
+          <div class="bio-image-overlay">
+            <span class="bio-popup-text">
+              Hackfrost NL 2025
+              <br />
+              DO IT Hackathon
+            </span>
+          </div>
         </div>
       </div>
     </template>
@@ -562,6 +576,25 @@
             target="_blank"
             rel="noopener noreferrer"
             >View my code</a
+          >
+        </div>
+      </div>
+    </template>
+
+    <!-- Certificates Template -->
+    <template id="tpl-certificates">
+      <h2 class="section-title">Certifications</h2>
+      <div class="certificates-grid">
+        <div class="certificate-card">
+          <i class="fas fa-certificate"></i>
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <p>Amazon Web Services</p>
+          <a
+            href="https://www.credly.com/badges/6d3d2ced-9b76-43b9-9b17-010351233132/linked_in_profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-link"
+            >View Credential →</a
           >
         </div>
       </div>

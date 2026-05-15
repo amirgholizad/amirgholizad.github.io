@@ -1,785 +1,610 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <head>
-      <link rel="shortcut icon" type="image/x-icon" href="../assets/g.ico" />
-    </head>
-    <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="../styles/mediaqueries.css" />
+    <title>AmirG! – Software Developer</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./assets/icons/avatar_circle.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/mediaqueries.css" />
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo"><a href="/">AmirG</a></div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">AmirG</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-profile">
+        <img
+          class="header-profile-pic"
+          src="./assets/images/profile_pic3.png"
+          alt="AmirG!"
+        />
+        <div class="header-left">
+          <h1>AmirG!</h1>
+          <p>Physicist • Software Developer</p>
         </div>
       </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="/assets/images/profile_pic.png" alt="AmirG profile picture" />
+      <div class="header-socials">
+        <a
+          href="https://github.com/AmirGholizad"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/amirgholizad/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:a.m.gholizad@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Amir Gholizad</h1>
-        <p class="section__text__p2">Software Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('https://docs.google.com/document/d/1qCVSKiO-MxrDRohy1NttNMQs_buzbETPfRO74H6iMQw/edit?usp=sharing')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="../assets/icons/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/amirgholizad/'"
-          />
-          <img
-            src="../assets/icons/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/AmirGholizad'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="../assets/images/profile_pic2.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="../assets/icons/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>Software Development <br /></p>
-            </div>
-            <div class="details-container">
-              <img
-                src="../assets/icons/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>B.Sc., M.Sc. Physics</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-              &#x2022; Physicist and Software Developer with a Master’s degree in
-              Physics from Memorial University of Newfoundland and a Software
-              Engineering Diploma from BrainStation Academy.
-              <br />&#x2022; Experienced in developing full-stack web
-              applications and applying analytical problem-solving techniques to
-              create innovative solutions. <br />&#x2022; Passionate about
-              bridging the gap between science and technology to build
-              impactful, scalable systems. <br />&#x2022;
-              <a
-                href="https://www.credly.com/badges/6d3d2ced-9b76-43b9-9b17-010351233132/linked_in_profile"
-                >⭐️ AWS Certified Cloud Practitioner</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="../assets/icons/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#skills'"
-      />
-    </section>
-    <section id="skills">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Skills</h1>
-      <div class="skills-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="skills-sub-title">Software Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>TypeScript</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>React.js</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Node.js</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Express.js</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Next.js</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Knex.js</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Sass</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>TailwindCSS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+    </header>
 
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>FastAPI</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>PostgreSQL</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>MySQL</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JSON</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
+    <!-- Tile Grid -->
+    <section class="home" id="home">
+      <div class="tiles-container">
+        <!-- Bio Tile -->
+        <button class="tile tile-bio" data-overlay="bio">
+          <i class="fas fa-user"></i>
+          <h2>Bio</h2>
+          <p>Learn more about me</p>
+          <span class="tile-arrow">→</span>
+        </button>
 
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Nginx</h3>
-                  <p>Basic&emsp;&emsp;&emsp;</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>AWS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Docker</h3>
-                  <p>Basic&emsp;&emsp;&emsp;</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="skills-sub-title">Other</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Bash</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Linux</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>TensorFlow</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Pytorch</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Scikit-learn</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Numpy</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Pandas</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Matplotlib</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Seaborn</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Jira</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="../assets/icons/checkmark.png"
-                  alt="Skills icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Agile</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
+        <!-- Projects Tile -->
+        <button class="tile tile-projects" data-overlay="projects">
+          <i class="fas fa-briefcase"></i>
+          <h2>Projects</h2>
+          <p>Things I've built</p>
+          <span class="tile-arrow">→</span>
+        </button>
+
+        <!-- Links Tile (Top Right) -->
+        <button class="tile tile-links-top" data-overlay="links">
+          <i class="fas fa-link"></i>
+          <h2>Links</h2>
+          <p>Find me online</p>
+          <span class="tile-arrow">→</span>
+        </button>
+
+        <!-- Experiences Tile -->
+        <button class="tile tile-experiences" data-overlay="experiences">
+          <i class="fas fa-star"></i>
+          <h2>Experiences</h2>
+          <p>My journey so far</p>
+          <span class="tile-arrow">→</span>
+        </button>
+
+        <!-- Hobbies Tile -->
+        <button class="tile tile-hobbies" data-overlay="hobbies">
+          <i class="fas fa-camera"></i>
+          <h2>Hobbies</h2>
+          <p>Things I enjoy</p>
+          <span class="tile-arrow">→</span>
+        </button>
+
+        <!-- Stack Tile -->
+        <button class="tile tile-stack" data-overlay="stack">
+          <i class="fas fa-code"></i>
+          <h2>Stack</h2>
+          <p>Technologies I use</p>
+          <span class="tile-arrow">→</span>
+        </button>
+
+        <!-- Resources/Links Tile -->
+        <button class="tile tile-resources" data-overlay="resources">
+          <i class="fas fa-link"></i>
+          <h2>Resources</h2>
+          <p>Useful links & things</p>
+          <span class="tile-arrow">→</span>
+        </button>
+
+        <!-- CV Tile -->
+        <a
+          href="https://docs.google.com/document/d/1qCVSKiO-MxrDRohy1NttNMQs_buzbETPfRO74H6iMQw/edit?usp=sharing"
+          class="tile tile-cv"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fas fa-file"></i>
+          <h2>CV</h2>
+          <p>Download my resume</p>
+          <span class="tile-arrow">→</span>
+        </a>
+
+        <!-- Certificates Tile -->
+        <button class="tile tile-certificates" data-overlay="certificates">
+          <i class="fas fa-certificate"></i>
+          <h2>Certificates</h2>
+          <p>Credentials & achievements</p>
+          <span class="tile-arrow">→</span>
+        </button>
       </div>
-      <img
-        src="../assets/icons/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
     </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="project-video-container color-container details-container">
-        <iframe
-          class="project-video-player"
-          src="https://www.youtube.com/embed/U0wUD3Z-4UI"
-        >
-        </iframe>
-        <div class="project-video-content">
-          <h2 class="project-video-content__title">
-            Nitro Coffee Shop Website
-          </h2>
-          <a
-            class="project-video-content__link"
-            href="https://github.com/amirgholizad/amir-gholizad-coffeeshop"
-            ><img src="./assets/icons/external-link.svg" alt="external link" />
-            <h4>(Github link)</h4></a
-          >
-          <p class="project-video-content__description">
-            Welcome to the Coffee Shop Project, a hands-on journey to mastering
-            web development basics and beyond! This website was completed as the
-            first project for the Software Engineering bootcamp hosted by
-            Brainstation. The repo walks you through a series of exercises to
-            build a visually appealing and functional coffee shop website while
-            learning and applying HTML, CSS, and advanced styling techniques.
-          </p>
-          <h3 class="project-video-content__stack">
-            Tech stack: HTML , CSS , SCSS (Sass)
-          </h3>
-        </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay">
+      <div class="overlay-backdrop"></div>
+      <div class="overlay-panel">
+        <button class="overlay-close" type="button" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="overlay-content" id="overlay-content"></div>
       </div>
-      <div class="project-video-container color-container details-container">
-        <iframe
-          class="project-video-player"
-          src="https://www.youtube.com/embed/Sym2u8oD-wM"
-        >
-        </iframe>
-        <div class="project-video-content">
-          <h2 class="project-video-content__title">MOODY WEAR Website</h2>
-          <a
-            class="project-video-content__link"
-            href="https://github.com/amirgholizad/BrainStation_Hackathon/tree/add-feature-ai"
-            ><img src="./assets/icons/external-link.svg" alt="external link" />
-            <h4>(Github link)</h4></a
-          >
-          <p class="project-video-content__description">
-            This website provides personalized clothing recommendations based on
-            your local weather conditions. It displays the temperature and
-            weather conditions for your location and suggests what to wear based
-            on the weather. It uses OpenAI api to generate the recommended
-            outfit and also the outfit image!
-          </p>
-          <h3 class="project-video-content__stack">
-            Tech stack: HTML , CSS , SCSS (Sass), JavaScript
-          </h3>
-        </div>
-      </div>
-      <div class="project-video-container color-container details-container">
-        <iframe
-          class="project-video-player"
-          src="https://www.youtube.com/embed/wkJO7vA7ZGs"
-        >
-        </iframe>
-        <div class="project-video-content">
-          <h2 class="project-video-content__title">BANDSITE Website</h2>
-          <a
-            class="project-video-content__link"
-            href="https://github.com/amirgholizad/amir-gholizad-bandsite"
-            ><img src="./assets/icons/external-link.svg" alt="external link" />
-            <h4>(Github link)</h4></a
-          >
-          <p class="project-video-content__description">
-            BandSite is a web development project created during the
-            BrainStation Software Engineering Bootcamp. The project was
-            completed in three sprints, each focusing on building a responsive
-            and interactive website for an up-and-coming band. The final product
-            integrates dynamic functionality, a responsive layout, and
-            API-driven content.
-          </p>
-          <h3 class="project-video-content__stack">
-            Tech stack: HTML , CSS , SCSS (Sass), JavaScript
-          </h3>
-        </div>
-      </div>
-      <div class="project-video-container color-container details-container">
-        <iframe
-          class="project-video-player"
-          src="https://www.youtube.com/embed/cD5DdkkP3G8"
-        >
-        </iframe>
-        <div class="project-video-content">
-          <h2 class="project-video-content__title">Snaps Website</h2>
-          <a
-            class="project-video-content__link"
-            href="https://github.com/amirgholizad/amir-gholizad-snaps"
-            ><img src="./assets/icons/external-link.svg" alt="external link" />
-            <h4>(Github link)</h4></a
-          >
-          <p class="project-video-content__description">
-            This project involves building a custom API service that replicates
-            the functionality of a provided mock API. The client application
-            will be updated to utilize this new API service, ensuring seamless
-            integration. The project is structured into two repositories: one
-            for the client-side application and another for the server-side API.
-          </p>
-          <h3 class="project-video-content__stack">
-            Tech stack: HTML , CSS , SCSS (Sass), JavaScript, React.js, Node.js,
-            Express.js
-          </h3>
-        </div>
-      </div>
-      <div class="project-video-container color-container details-container">
-        <iframe
-          class="project-video-player"
-          src="https://www.youtube.com/embed/GetRndBU4KQ"
-        >
-        </iframe>
-        <div class="project-video-content">
-          <h2 class="project-video-content__title">BEAT Website</h2>
-          <a
-            class="project-video-content__link"
-            href="https://github.com/amirgholizad/BEAT"
-            ><img src="./assets/icons/external-link.svg" alt="external link" />
-            <h4>(Github link)</h4></a
-          >
-          <p class="project-video-content__description">
-            BEAT is a website for Ecnophysicists and Financial Markets
-            enthusiasts that provides various computational services to users.
-            <br />It provides 3 main services: <br />
-            - Ability to create and post articles related to financial markets
-            <br />
-            - Ability to create and post technical indicators <br />
-            - Ability to monitor financial assets using an interactive chart
-            <br />
-            Future prospects of the project are: <br />
-            - Selling JS and Python based technical indicators and trading
-            strategies <br />
-            - Back-testing trading strategies and technical indicators<br />
-          </p>
-          <h3 class="project-video-content__stack">
-            Tech stack: SCSS (Sass), JavaScript, React.js, Node(Express.js),
-            MySQL, Multer, Supabase
-          </h3>
-        </div>
-      </div>
-      <div class="project-video-container color-container details-container">
-        <iframe
-          class="project-video-player"
-          src="https://www.youtube.com/embed/-NHROORAmkc"
-        >
-        </iframe>
-        <div class="project-video-content">
-          <h2 class="project-video-content__title">Instock Website</h2>
-          <a
-            class="project-video-content__link"
-            href="https://github.com/amirgholizad/bug-busters-instock-server"
-            ><img src="./assets/icons/external-link.svg" alt="external link" />
-            <h4>(Github link)</h4></a
-          >
-          <p class="project-video-content__description">
-            This is an example project of an Inventory Management System with
-            all the CRUD operations for warehouses and inventories. The data are
-            stored within two tables, warehouses and inventories, hosted on a
-            MySQL database and connected to each other using warehouse_id
-            foreign key.
-          </p>
-          <h3 class="project-video-content__stack">
-            Tech stack: SCSS (Sass), JavaScript, React.js, Node(Express.js),
-            MySQL
-          </h3>
-        </div>
-      </div>
-      <div class="skills-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="../assets/images/project-1.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="skills-sub-title project-title">
-              CRUD (FastAPI + PostgreSQL)
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/AmirGholizad/AmirG.dev-CRUD'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="../assets/images/project-2.jpg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="skills-sub-title project-title">Sentiment Analysis</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/AmirGholizad/imdb_sentiment_analysis'"
-              >
-                Github
-              </button>
-              <!-- <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/AmirGholizad'"
-              >
-                Live Demo
-              </button> -->
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="../assets/images/project-3.jpg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="skills-sub-title project-title">
-              Dimensionality Reduction
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/AmirGholizad/tails_of_distributions'"
-              >
-                Github
-              </button>
-              <!-- <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/AmirGholizad'"
-              >
-                Live Demo
-              </button> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="../assets/icons/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="../assets/icons/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
+    </div>
+
+    <!-- Content Templates (hidden) -->
+
+    <!-- Bio Template -->
+    <template id="tpl-bio">
+      <h2 class="section-title">About Me</h2>
+      <div class="bio-content">
+        <div class="bio-text">
           <p>
-            <a href="mailto:a.m.gholizad@gmail.com">a.m.gholizad@gmail.com</a>
+            I'm a Physicist and Software Developer with a Master's degree in
+            Physics from Memorial University of Newfoundland and a Software
+            Engineering Diploma from BrainStation Academy.
+          </p>
+          <p>
+            Experienced in developing full-stack web applications and applying
+            analytical problem-solving techniques to create innovative
+            solutions.
+          </p>
+          <p>
+            Passionate about bridging the gap between science and technology to
+            build impactful, scalable systems.
           </p>
         </div>
-        <div class="contact-info-container">
-          <img
-            src="../assets/icons/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p>
-            <a href="https://www.linkedin.com/in/amirgholizad/">LinkedIn</a>
-          </p>
+        <div class="bio-image">
+          <img src="./assets/images/hackathon.jpg" alt="Amir Gholizad" />
+          <div class="bio-image-overlay">
+            <span class="bio-popup-text">
+              Hackfrost NL 2025
+              <br />
+              DO IT Hackathon
+            </span>
+          </div>
         </div>
       </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+    </template>
+
+    <!-- Experiences Template -->
+    <template id="tpl-experiences">
+      <h2 class="section-title">Experiences</h2>
+      <div class="experiences-grid">
+        <div class="experience-card">
+          <i class="fas fa-briefcase"></i>
+          <h3>Professional</h3>
+          <p>Software Development</p>
+        </div>
+        <div class="experience-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Education</h3>
+          <p>B.Sc., M.Sc. Physics<br />Software Engineering Diploma</p>
+        </div>
+      </div>
+    </template>
+
+    <!-- Hobbies Template -->
+    <template id="tpl-hobbies">
+      <h2 class="section-title">Hobbies</h2>
+      <div class="hobbies-grid">
+        <div class="hobby-card">
+          <i class="fas fa-mountain"></i>
+          <h3>Hiking</h3>
+          <p>Exploring nature and outdoor trails</p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-gamepad"></i>
+          <h3>Gaming</h3>
+          <p>Video games and interactive experiences</p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-utensils"></i>
+          <h3>Cooking</h3>
+          <p>Culinary adventures and food exploration</p>
+        </div>
+      </div>
+    </template>
+
+    <!-- Stack Template -->
+    <template id="tpl-stack">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="skills-columns">
+        <div class="skills-column">
+          <h3>Web Development</h3>
+          <ul class="skills-list">
+            <li><span class="skill-badge">HTML</span></li>
+            <li><span class="skill-badge">CSS</span></li>
+            <li><span class="skill-badge">JavaScript</span></li>
+            <li><span class="skill-badge">TypeScript</span></li>
+            <li><span class="skill-badge">React.js</span></li>
+            <li><span class="skill-badge">Node.js</span></li>
+            <li><span class="skill-badge">Express.js</span></li>
+            <li><span class="skill-badge">Next.js</span></li>
+            <li><span class="skill-badge">Knex.js</span></li>
+            <li><span class="skill-badge">Sass</span></li>
+            <li><span class="skill-badge">TailwindCSS</span></li>
+            <li><span class="skill-badge">FastAPI</span></li>
+            <li><span class="skill-badge">PostgreSQL</span></li>
+            <li><span class="skill-badge">MySQL</span></li>
+            <li><span class="skill-badge">JSON</span></li>
+            <li><span class="skill-badge">Nginx</span></li>
+            <li><span class="skill-badge">AWS</span></li>
+            <li><span class="skill-badge">Docker</span></li>
           </ul>
         </div>
-      </nav>
-      <p>Copyright &#169; 2024 AmirG. All Rights Reserved.</p>
+        <div class="skills-column">
+          <h3>Other Skills</h3>
+          <ul class="skills-list">
+            <li><span class="skill-badge">Git</span></li>
+            <li><span class="skill-badge">Bash</span></li>
+            <li><span class="skill-badge">Linux</span></li>
+            <li><span class="skill-badge">TensorFlow</span></li>
+            <li><span class="skill-badge">PyTorch</span></li>
+            <li><span class="skill-badge">Scikit-learn</span></li>
+            <li><span class="skill-badge">NumPy</span></li>
+            <li><span class="skill-badge">Pandas</span></li>
+            <li><span class="skill-badge">Matplotlib</span></li>
+            <li><span class="skill-badge">Seaborn</span></li>
+            <li><span class="skill-badge">Jira</span></li>
+            <li><span class="skill-badge">Agile</span></li>
+          </ul>
+        </div>
+      </div>
+    </template>
+
+    <!-- Projects Template -->
+    <template id="tpl-projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-videos">
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/U0wUD3Z-4UI"
+            title="Nitro Coffee Shop Website"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          >
+          </iframe>
+          <div class="project-info">
+            <h3>Nitro Coffee Shop Website</h3>
+            <p>
+              Welcome to the Coffee Shop Project, a hands-on journey to
+              mastering web development basics and beyond! Built as the first
+              project for BrainStation Software Engineering bootcamp.
+            </p>
+            <p class="tech-stack">Tech: HTML, CSS, SCSS</p>
+            <a
+              href="https://github.com/amirgholizad/amir-gholizad-coffeeshop"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+              >View on GitHub →</a
+            >
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/Sym2u8oD-wM"
+            title="MOODY WEAR Website"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          >
+          </iframe>
+          <div class="project-info">
+            <h3>MOODY WEAR Website</h3>
+            <p>
+              Personalized clothing recommendations based on local weather
+              conditions. Uses OpenAI API to generate outfit suggestions and
+              outfit images.
+            </p>
+            <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript</p>
+            <a
+              href="https://github.com/amirgholizad/BrainStation_Hackathon/tree/add-feature-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+              >View on GitHub →</a
+            >
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/wkJO7vA7ZGs"
+            title="BANDSITE Website"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          >
+          </iframe>
+          <div class="project-info">
+            <h3>BANDSITE Website</h3>
+            <p>
+              A responsive and interactive website for an up-and-coming band.
+              Completed in three sprints during BrainStation bootcamp,
+              integrating dynamic functionality and API-driven content.
+            </p>
+            <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript</p>
+            <a
+              href="https://github.com/amirgholizad/amir-gholizad-bandsite"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+              >View on GitHub →</a
+            >
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/cD5DdkkP3G8"
+            title="Snaps Website"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          >
+          </iframe>
+          <div class="project-info">
+            <h3>Snaps Website</h3>
+            <p>
+              Building a custom API service replicating mock API functionality.
+              Structured with separate client-side and server-side repositories
+              for seamless integration.
+            </p>
+            <p class="tech-stack">
+              Tech: HTML, CSS, SCSS, JavaScript, React.js, Node.js, Express.js
+            </p>
+            <a
+              href="https://github.com/amirgholizad/amir-gholizad-snaps"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+              >View on GitHub →</a
+            >
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/GetRndBU4KQ"
+            title="BEAT Website"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          >
+          </iframe>
+          <div class="project-info">
+            <h3>BEAT Website</h3>
+            <p>
+              A platform for Econophysicists and Financial Markets enthusiasts
+              providing computational services: articles, technical indicators,
+              and interactive charting for financial asset monitoring.
+            </p>
+            <p class="tech-stack">
+              Tech: SCSS, JavaScript, React.js, Node.js, Express.js, MySQL,
+              Multer, Supabase
+            </p>
+            <a
+              href="https://github.com/amirgholizad/BEAT"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+              >View on GitHub →</a
+            >
+          </div>
+        </div>
+
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/-NHROORAmkc"
+            title="Instock Website"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          >
+          </iframe>
+          <div class="project-info">
+            <h3>Instock Website</h3>
+            <p>
+              An Inventory Management System with full CRUD operations for
+              warehouses and inventories. Data stored in MySQL with foreign key
+              relationships.
+            </p>
+            <p class="tech-stack">
+              Tech: SCSS, JavaScript, React.js, Node.js, Express.js, MySQL
+            </p>
+            <a
+              href="https://github.com/amirgholizad/bug-busters-instock-server"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+              >View on GitHub →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="./assets/images/project-1.jpg" alt="CRUD Project" />
+          <h3>CRUD (FastAPI + PostgreSQL)</h3>
+          <a
+            href="https://github.com/AmirGholizad/AmirG.dev-CRUD"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-card-link"
+            >View on GitHub →</a
+          >
+        </div>
+        <div class="project-card">
+          <img src="./assets/images/project-2.jpg" alt="Sentiment Analysis" />
+          <h3>Sentiment Analysis</h3>
+          <a
+            href="https://github.com/AmirGholizad/imdb_sentiment_analysis"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-card-link"
+            >View on GitHub →</a
+          >
+        </div>
+        <div class="project-card">
+          <img
+            src="./assets/images/project-3.jpg"
+            alt="Dimensionality Reduction"
+          />
+          <h3>Dimensionality Reduction</h3>
+          <a
+            href="https://github.com/AmirGholizad/tails_of_distributions"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-card-link"
+            >View on GitHub →</a
+          >
+        </div>
+      </div>
+    </template>
+
+    <!-- Links/Resources Template -->
+    <template id="tpl-links">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <a href="mailto:a.m.gholizad@gmail.com">a.m.gholizad@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <a
+            href="https://www.linkedin.com/in/amirgholizad/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Connect with me</a
+          >
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-github"></i>
+          <h3>GitHub</h3>
+          <a
+            href="https://github.com/AmirGholizad"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View my code</a
+          >
+        </div>
+      </div>
+    </template>
+
+    <!-- Resources Template (same as links for now) -->
+    <template id="tpl-resources">
+      <h2 class="section-title">Resources & Links</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <a href="mailto:a.m.gholizad@gmail.com">a.m.gholizad@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <a
+            href="https://www.linkedin.com/in/amirgholizad/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Connect with me</a
+          >
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-github"></i>
+          <h3>GitHub</h3>
+          <a
+            href="https://github.com/AmirGholizad"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View my code</a
+          >
+        </div>
+      </div>
+    </template>
+
+    <!-- Certificates Template -->
+    <template id="tpl-certificates">
+      <h2 class="section-title">Certifications</h2>
+      <div class="certificates-grid">
+        <div class="certificate-card">
+          <i class="fas fa-certificate"></i>
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <p>Amazon Web Services</p>
+          <a
+            href="https://www.credly.com/badges/6d3d2ced-9b76-43b9-9b17-010351233132/linked_in_profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-link"
+            >View Credential →</a
+          >
+        </div>
+      </div>
+    </template>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Amir Gholizad. All rights reserved.</p>
     </footer>
-    <script src="../scripts/script.js"></script>
+
+    <script src="./scripts/script.js"></script>
   </body>
 </html>

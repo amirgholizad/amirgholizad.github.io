@@ -373,9 +373,11 @@ html {
   border-left: 4px solid #5b9713;
 }
 
-.experience-card:hover {
-  transform: translateY(-4px);
-  background: #333;
+@media (hover: hover) and (min-width: 1024px) {
+  .experience-card:hover {
+    transform: translateY(-4px);
+    background: #333;
+  }
 }
 
 .experience-card i {
@@ -412,9 +414,11 @@ html {
   transition: 300ms ease;
 }
 
-.hobby-card:hover {
-  transform: translateY(-4px);
-  background: #333;
+@media (hover: hover) and (min-width: 1024px) {
+  .hobby-card:hover {
+    transform: translateY(-4px);
+    background: #333;
+  }
 }
 
 .hobby-card i {

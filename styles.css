@@ -1,0 +1,419 @@
+/* ---------- Reset & base ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream-1: #fbf3e2;
+  --cream-2: #f5e7cd;
+  --cream-3: #efdcbb;
+  --cream-4: #e8cfa6;
+  --cream-deep: #d8b98a;
+  --ink: #5c4a33;
+  --ink-soft: #8a7457;
+  --accent: #c99b5f;
+  --card-radius: 26px;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;               /* non-scrollable */
+  overscroll-behavior: none;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  background: var(--cream-2);
+}
+
+/* ---------- Animated cream gradient backdrop ---------- */
+.gradient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(120deg, var(--cream-1), var(--cream-3), var(--cream-2), var(--cream-4));
+  background-size: 300% 300%;
+  animation: sheen 18s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes sheen {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* soft drifting blobs for extra depth */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.7;
+  mix-blend-mode: soft-light;
+  will-change: transform;
+}
+.blob-1 { width: 46vmax; height: 46vmax; left: -12vmax; top: -14vmax;
+  background: radial-gradient(circle, #fff7e8, transparent 70%);
+  animation: drift1 22s ease-in-out infinite; }
+.blob-2 { width: 40vmax; height: 40vmax; right: -12vmax; top: 6vmax;
+  background: radial-gradient(circle, #e8c99a, transparent 70%);
+  animation: drift2 26s ease-in-out infinite; }
+.blob-3 { width: 42vmax; height: 42vmax; left: 8vmax; bottom: -16vmax;
+  background: radial-gradient(circle, #f3ddb6, transparent 70%);
+  animation: drift3 30s ease-in-out infinite; }
+.blob-4 { width: 30vmax; height: 30vmax; right: 4vmax; bottom: -8vmax;
+  background: radial-gradient(circle, #fff3dc, transparent 70%);
+  animation: drift1 24s ease-in-out infinite reverse; }
+
+@keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(6vmax,4vmax) scale(1.12); } }
+@keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-5vmax,5vmax) scale(1.1); } }
+@keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(4vmax,-5vmax) scale(1.15); } }
+
+/* ---------- Diagonal skill lines ---------- */
+.logo-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;              /* above gradient, below the card stage */
+  overflow: hidden;
+  pointer-events: none;
+}
+/* Oversized grid, rotated so the horizontal rows read as diagonal lines. */
+.logo-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 155vmax;
+  height: 155vmax;
+  transform: translate(-50%, -50%) rotate(24deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.logo-line {
+  display: flex;
+  align-items: center;
+  height: var(--row-h, 112px);
+  overflow: hidden;
+}
+/* The moving strip: two identical sequences → seamless -50% marquee loop. */
+.logo-track {
+  display: flex;
+  align-items: center;
+  flex: none;
+  animation: marquee var(--dur, 60s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform;
+}
+@keyframes marquee {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.logo-item {
+  flex: none;
+  margin-right: var(--gap, 48px);
+  display: grid;
+  place-items: center;
+  color: #7a5f3a;          /* warm sepia tint, unified with the theme */
+}
+.logo-item svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;      /* Simple Icons paths inherit this */
+  display: block;
+}
+.logo-item .logo-chip {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: currentColor;
+  white-space: nowrap;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  padding: 0.25em 0.7em;
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-field { display: none; }
+}
+
+/* ---------- Stage & 3D scene ---------- */
+.stage {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card-scene {
+  perspective: 1600px;
+  perspective-origin: 50% 50%;
+}
+
+/* Container only sizes & zooms — GSAP rotates each face independently. */
+.card {
+  position: relative;
+  width: min(88vw, 470px);
+  aspect-ratio: 1.68 / 1;
+}
+
+/* Dynamic ground shadow — GSAP spreads & deepens it during the lift */
+.card-shadow {
+  position: absolute;
+  inset: 6% 5%;
+  border-radius: var(--card-radius);
+  background: rgba(120, 90, 50, 0.55);
+  filter: blur(28px);
+  opacity: 0.3;
+  z-index: -1;
+  will-change: transform, opacity;
+}
+
+/* ---------- Card faces ---------- */
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-radius);
+  transform-origin: 50% 50%;
+  overflow: hidden;        /* safe: faces hide via GSAP autoAlpha, not backface */
+  box-shadow:
+    0 30px 60px -20px rgba(120, 90, 50, 0.45),
+    0 8px 20px -8px rgba(120, 90, 50, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Back starts hidden; GSAP toggles visibility/rotation. */
+.card-back { visibility: hidden; }
+
+.card-front {
+  background:
+    radial-gradient(120% 130% at 0% 0%, #fffaf0 0%, #f7ecd6 42%, #efdcbc 100%);
+  padding: clamp(18px, 4vw, 30px);
+  display: flex;
+  align-items: center;
+}
+.card-back {
+  background:
+    radial-gradient(120% 130% at 100% 0%, #fbf1dc 0%, #ecd9b6 55%, #e2c99e 100%);
+  padding: clamp(18px, 4vw, 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* subtle top gloss line on both faces */
+.card-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent 30%);
+  pointer-events: none;
+}
+
+/* ---------- Flip CTA (top-right corner) ---------- */
+.flip-cta {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: clamp(12px, 2.6vw, 14px);
+  letter-spacing: 0.2px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #b8823f);
+  box-shadow: 0 6px 14px -4px rgba(150, 100, 40, 0.6);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+.flip-cta:hover { transform: translateY(-1px) scale(1.05); box-shadow: 0 10px 20px -6px rgba(150, 100, 40, 0.7); filter: brightness(1.05); }
+.flip-cta:active { transform: scale(0.97); }
+.flip-cta__icon { width: 15px; height: 15px; }
+.flip-cta--back { background: linear-gradient(135deg, #a9825a, #8a6740); }
+
+/* ---------- Front content ---------- */
+.front-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 4vw, 28px);
+  width: 100%;
+}
+
+.avatar-wrap {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(96px, 26%, 140px);
+  aspect-ratio: 1;
+}
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fffaf0;
+  box-shadow: 0 10px 24px -8px rgba(120, 90, 50, 0.5);
+}
+.avatar-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px dashed rgba(201, 155, 95, 0.55);
+  animation: spinRing 14s linear infinite;
+}
+@keyframes spinRing { to { transform: rotate(360deg); } }
+
+.identity { min-width: 0; }
+.name {
+  font-size: clamp(28px, 7vw, 40px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  background: linear-gradient(120deg, #6b5334, #a9793f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.title {
+  margin-top: 6px;
+  font-size: clamp(12px, 3vw, 15px);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.title .dot { color: var(--accent); font-weight: 700; padding: 0 4px; }
+
+.contact {
+  list-style: none;
+  margin-top: clamp(12px, 3vw, 18px);
+  display: grid;
+  gap: 8px;
+}
+.contact li { display: flex; align-items: center; gap: 9px; }
+.contact .ico {
+  width: 18px; height: 18px; flex: 0 0 auto;
+  color: var(--accent);
+}
+.contact a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 500;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.contact a:hover { color: var(--accent); }
+.contact .loc-text {
+  color: var(--ink);
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand-mark {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(150, 110, 60, 0.35);
+  z-index: 2;
+}
+
+/* ---------- Back content ---------- */
+.back-inner { position: relative; z-index: 2; width: 100%; }
+.back-kicker {
+  font-size: clamp(11px, 2.6vw, 12px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+}
+.back-title {
+  font-size: clamp(20px, 5vw, 26px);
+  font-weight: 700;
+  color: #6b5334;
+  margin-top: 2px;
+  margin-bottom: clamp(8px, 2.4vw, 14px);
+}
+
+.socials {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(8px, 1.8vw, 11px);
+}
+.socials a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(8px, 2vw, 11px) clamp(10px, 2.5vw, 13px);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--ink);
+  background: rgba(255, 250, 240, 0.55);
+  border: 1px solid rgba(201, 155, 95, 0.28);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.socials a:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 250, 240, 0.9);
+  box-shadow: 0 8px 18px -8px rgba(120, 90, 50, 0.5);
+}
+.social-ico {
+  width: 30px; height: 30px; flex: 0 0 auto;
+  display: grid; place-items: center;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #a9793f);
+}
+.social-ico svg { width: 17px; height: 17px; }
+.social-text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+.social-text b { font-size: clamp(12px, 2.8vw, 14px); font-weight: 600; }
+.social-text small { font-size: clamp(10px, 2.4vw, 12px); color: var(--ink-soft); }
+
+.back-footer {
+  margin-top: clamp(8px, 2vw, 13px);
+  font-size: clamp(10px, 2.4vw, 12px);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ---------- Small screens (portrait phones) ---------- */
+@media (max-width: 560px) {
+  .card { width: min(93vw, 470px); aspect-ratio: 1.42 / 1; }
+  .card-front, .card-back { padding: clamp(14px, 4.5vw, 22px); }
+  .front-inner { gap: clamp(12px, 3.5vw, 20px); }
+  .avatar-wrap { width: clamp(72px, 23%, 104px); }
+  .contact a, .contact .loc-text { font-size: 12px; }  /* keep long lines on one row */
+  .socials { gap: 8px; }                  /* stays 2 columns so it fits the card */
+  .socials a { gap: 8px; padding: 8px 10px; border-radius: 12px; }
+  .social-ico { width: 26px; height: 26px; border-radius: 8px; }
+  .social-ico svg { width: 15px; height: 15px; }
+  .flip-cta { top: 10px; right: 10px; padding: 6px 12px; }
+  .brand-mark { bottom: 12px; right: 14px; }
+}
+
+/* ---------- Short / landscape: size by height so the card never clips ---------- */
+@media (max-height: 430px) {
+  .card { width: auto; height: min(86vh, 300px); aspect-ratio: 1.68 / 1; }
+  .stage { padding: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-bg, .blob, .avatar-ring { animation-duration: 0.001ms; animation-iteration-count: 1; }
+}

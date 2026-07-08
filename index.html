@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amir Gholizad – Software Developer & Web Designer</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Amir Gholizad – Software Developer &amp; Web Designer</title>
     <meta
       name="description"
-      content="Amir Gholizad is a full-stack software developer and web designer with expertise in React, Node.js, Python, and cloud technologies. View my portfolio and projects."
+      content="Amir Gholizad is a full-stack software developer and web designer based in Toronto, Ontario, with expertise in React, Node.js, Python, and cloud technologies. Get in touch or explore my work."
     />
     <meta
       name="keywords"
-      content="Amir Gholizad, software developer, full-stack developer, web development, web designer"
+      content="Amir Gholizad, software developer, full-stack developer, web development, web designer, Toronto"
     />
     <meta name="author" content="Amir Gholizad" />
     <link rel="canonical" href="https://amirgholizad.github.io" />
@@ -25,7 +28,7 @@
     />
     <meta
       property="og:description"
-      content="Full-stack developer with expertise in React, Node.js, Python, and AWS. Explore my projects and experience."
+      content="Full-stack developer with expertise in React, Node.js, Python, and AWS. Based in Toronto, Ontario. Get in touch or explore my work."
     />
     <meta
       property="og:image"
@@ -39,7 +42,7 @@
     />
     <meta
       name="twitter:description"
-      content="Full-stack developer with expertise in React, Node.js, Python, and AWS."
+      content="Full-stack developer with expertise in React, Node.js, Python, and AWS. Based in Toronto, Ontario."
     />
     <meta
       name="twitter:image"
@@ -56,6 +59,12 @@
         "jobTitle": "Software Developer",
         "image": "https://amirgholizad.github.io/assets/images/profile_pic3.png",
         "description": "Full-stack software developer with a Software Engineering Diploma",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Toronto",
+          "addressRegion": "Ontario",
+          "addressCountry": "Canada"
+        },
         "sameAs": [
           "https://github.com/AmirGholizad",
           "https://www.linkedin.com/in/amirgholizad/"
@@ -81,601 +90,239 @@
       type="image/x-icon"
       href="./assets/icons/avatar_circle.ico"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/mediaqueries.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="header-profile">
-        <img
-          class="header-profile-pic"
-          src="./assets/images/profile_pic3.png"
-          alt="Amir Gholizad - Software Developer and Web Designer"
-        />
-        <div class="header-left">
-          <h1>AmirG!</h1>
-          <p>Web Designer • Software Developer</p>
-        </div>
-      </div>
-      <div class="header-socials">
-        <a
-          href="https://github.com/AmirGholizad"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-github"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/amirgholizad/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="mailto:a.m.gholizad@gmail.com">
-          <i class="fas fa-envelope"></i>
-        </a>
-      </div>
-    </header>
-
-    <!-- Tile Grid -->
-    <section class="home" id="home">
-      <div class="tiles-container">
-        <!-- Bio Tile -->
-        <button class="tile tile-bio" data-overlay="bio">
-          <i class="fas fa-user"></i>
-          <h2>Bio</h2>
-          <p>Learn more about me</p>
-          <span class="tile-arrow">→</span>
-        </button>
-
-        <!-- Projects Tile -->
-        <button class="tile tile-projects" data-overlay="projects">
-          <i class="fas fa-briefcase"></i>
-          <h2>Projects</h2>
-          <p>Things I've built</p>
-          <span class="tile-arrow">→</span>
-        </button>
-
-        <!-- Links Tile (Top Right) -->
-        <button class="tile tile-links-top" data-overlay="links">
-          <i class="fas fa-link"></i>
-          <h2>Links</h2>
-          <p>Find me online</p>
-          <span class="tile-arrow">→</span>
-        </button>
-
-        <!-- Experiences Tile -->
-        <button class="tile tile-experiences" data-overlay="experiences">
-          <i class="fas fa-star"></i>
-          <h2>Experiences</h2>
-          <p>My journey so far</p>
-          <span class="tile-arrow">→</span>
-        </button>
-
-        <!-- Hobbies Tile -->
-        <button class="tile tile-hobbies" data-overlay="hobbies">
-          <i class="fas fa-camera"></i>
-          <h2>Hobbies</h2>
-          <p>Things I enjoy</p>
-          <span class="tile-arrow">→</span>
-        </button>
-
-        <!-- Stack Tile -->
-        <button class="tile tile-stack" data-overlay="stack">
-          <i class="fas fa-code"></i>
-          <h2>Stack</h2>
-          <p>Technologies I use</p>
-          <span class="tile-arrow">→</span>
-        </button>
-
-        <!-- Resources/Links Tile -->
-        <button class="tile tile-resources" data-overlay="resources">
-          <i class="fas fa-link"></i>
-          <h2>Resources</h2>
-          <p>Useful links & things</p>
-          <span class="tile-arrow">→</span>
-        </button>
-
-        <!-- CV Tile -->
-        <a
-          href="https://docs.google.com/document/d/1qCVSKiO-MxrDRohy1NttNMQs_buzbETPfRO74H6iMQw/edit?usp=sharing"
-          class="tile tile-cv"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fas fa-file"></i>
-          <h2>CV</h2>
-          <p>Download my resume</p>
-          <span class="tile-arrow">→</span>
-        </a>
-
-        <!-- Certificates Tile -->
-        <button class="tile tile-certificates" data-overlay="certificates">
-          <i class="fas fa-certificate"></i>
-          <h2>Certificates</h2>
-          <p>Credentials & achievements</p>
-          <span class="tile-arrow">→</span>
-        </button>
-      </div>
-    </section>
-
-    <!-- Overlay -->
-    <div class="overlay" id="overlay">
-      <div class="overlay-backdrop"></div>
-      <div class="overlay-panel">
-        <button class="overlay-close" type="button" aria-label="Close">
-          <i class="fas fa-times"></i>
-        </button>
-        <div class="overlay-content" id="overlay-content"></div>
-      </div>
+    <!-- Animated cream gradient backdrop -->
+    <div class="gradient-bg" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+      <span class="blob blob-4"></span>
     </div>
 
-    <!-- Content Templates (hidden) -->
+    <!-- Diagonally drifting stack logos -->
+    <div class="logo-field" id="logoField" aria-hidden="true"></div>
 
-    <!-- Bio Template -->
-    <template id="tpl-bio">
-      <h2 class="section-title">About Me</h2>
-      <div class="bio-content">
-        <div class="bio-text">
-          <p>
-            I'm a Physicist and Software Developer with a Master's degree in
-            Physics from Memorial University of Newfoundland and a Software
-            Engineering Diploma from BrainStation Academy.
-          </p>
-          <p>
-            Experienced in developing full-stack web applications and applying
-            analytical problem-solving techniques to create innovative
-            solutions.
-          </p>
-          <p>
-            Passionate about bridging the gap between science and technology to
-            build impactful, scalable systems.
-          </p>
-        </div>
-        <div class="bio-image">
-          <img src="./assets/images/hackathon.jpg" alt="Amir Gholizad" />
-          <div class="bio-image-overlay">
-            <span class="bio-popup-text">
-              Hackfrost NL 2025
-              <br />
-              DO IT Hackathon
-            </span>
-          </div>
-        </div>
-      </div>
-    </template>
+    <main class="stage">
+      <div class="card-scene">
+        <div class="card" id="card">
+          <!-- Dynamic ground shadow that reacts to the lift -->
+          <div class="card-shadow" aria-hidden="true"></div>
 
-    <!-- Experiences Template -->
-    <template id="tpl-experiences">
-      <h2 class="section-title">Experiences</h2>
-      <div class="experiences-grid">
-        <div class="experience-card">
-          <i class="fas fa-briefcase"></i>
-          <h3>Professional</h3>
-          <p>Software Development</p>
-        </div>
-        <div class="experience-card">
-          <i class="fas fa-graduation-cap"></i>
-          <h3>Education</h3>
-          <p>B.Sc., M.Sc. Physics<br />Software Engineering Diploma</p>
-        </div>
-      </div>
-    </template>
-
-    <!-- Hobbies Template -->
-    <template id="tpl-hobbies">
-      <h2 class="section-title">Hobbies</h2>
-      <div class="hobbies-grid">
-        <div class="hobby-card">
-          <i class="fas fa-mountain"></i>
-          <h3>Hiking</h3>
-          <p>Exploring nature and outdoor trails</p>
-        </div>
-        <div class="hobby-card">
-          <i class="fas fa-gamepad"></i>
-          <h3>Gaming</h3>
-          <p>Video games and interactive experiences</p>
-        </div>
-        <div class="hobby-card">
-          <i class="fas fa-utensils"></i>
-          <h3>Cooking</h3>
-          <p>Culinary adventures and food exploration</p>
-        </div>
-      </div>
-    </template>
-
-    <!-- Stack Template -->
-    <template id="tpl-stack">
-      <h2 class="section-title">Tech Stack</h2>
-      <div class="skills-columns">
-        <div class="skills-column">
-          <h3>Web Development</h3>
-          <ul class="skills-list">
-            <li><span class="skill-badge">HTML</span></li>
-            <li><span class="skill-badge">CSS</span></li>
-            <li><span class="skill-badge">JavaScript</span></li>
-            <li><span class="skill-badge">TypeScript</span></li>
-            <li><span class="skill-badge">React.js</span></li>
-            <li><span class="skill-badge">Node.js</span></li>
-            <li><span class="skill-badge">Express.js</span></li>
-            <li><span class="skill-badge">Next.js</span></li>
-            <li><span class="skill-badge">Knex.js</span></li>
-            <li><span class="skill-badge">Sass</span></li>
-            <li><span class="skill-badge">TailwindCSS</span></li>
-            <li><span class="skill-badge">FastAPI</span></li>
-            <li><span class="skill-badge">PostgreSQL</span></li>
-            <li><span class="skill-badge">MySQL</span></li>
-            <li><span class="skill-badge">JSON</span></li>
-            <li><span class="skill-badge">Nginx</span></li>
-            <li><span class="skill-badge">AWS</span></li>
-            <li><span class="skill-badge">Docker</span></li>
-          </ul>
-        </div>
-        <div class="skills-column">
-          <h3>Other Skills</h3>
-          <ul class="skills-list">
-            <li><span class="skill-badge">Git</span></li>
-            <li><span class="skill-badge">Bash</span></li>
-            <li><span class="skill-badge">Linux</span></li>
-            <li><span class="skill-badge">TensorFlow</span></li>
-            <li><span class="skill-badge">PyTorch</span></li>
-            <li><span class="skill-badge">Scikit-learn</span></li>
-            <li><span class="skill-badge">NumPy</span></li>
-            <li><span class="skill-badge">Pandas</span></li>
-            <li><span class="skill-badge">Matplotlib</span></li>
-            <li><span class="skill-badge">Seaborn</span></li>
-            <li><span class="skill-badge">Jira</span></li>
-            <li><span class="skill-badge">Agile</span></li>
-          </ul>
-        </div>
-      </div>
-    </template>
-
-    <!-- Projects Template -->
-    <template id="tpl-projects">
-      <h2 class="section-title">Projects</h2>
-
-      <div class="projects-videos">
-        <div class="project-video">
-          <iframe
-            src="https://www.youtube.com/embed/U0wUD3Z-4UI"
-            title="Nitro Coffee Shop Website"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-            "
-            allowfullscreen
-          >
-          </iframe>
-          <div class="project-info">
-            <h3>Nitro Coffee Shop Website</h3>
-            <p>
-              Welcome to the Coffee Shop Project, a hands-on journey to
-              mastering web development basics and beyond! Built as the first
-              project for BrainStation Software Engineering bootcamp.
-            </p>
-            <p class="tech-stack">Tech: HTML, CSS, SCSS</p>
-            <a
-              href="https://github.com/amirgholizad/amir-gholizad-coffeeshop"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              >View on GitHub →</a
+          <!-- ---------- FRONT ---------- -->
+          <section class="card-face card-front">
+            <button
+              class="flip-cta"
+              id="flipBtn"
+              type="button"
+              aria-label="Flip the card"
             >
-          </div>
-        </div>
+              <span class="flip-cta__text">Flip!</span>
+              <svg
+                viewBox="0 0 24 24"
+                class="flip-cta__icon"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 12a8 8 0 0 1 13.66-5.66M20 12a8 8 0 0 1-13.66 5.66"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M17 3v4h-4M7 21v-4h4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
 
-        <div class="project-video">
-          <iframe
-            src="https://www.youtube.com/embed/Sym2u8oD-wM"
-            title="MOODY WEAR Website"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-            "
-            allowfullscreen
-          >
-          </iframe>
-          <div class="project-info">
-            <h3>MOODY WEAR Website</h3>
-            <p>
-              Personalized clothing recommendations based on local weather
-              conditions. Uses OpenAI API to generate outfit suggestions and
-              outfit images.
-            </p>
-            <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript</p>
-            <a
-              href="https://github.com/amirgholizad/BrainStation_Hackathon/tree/add-feature-ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              >View on GitHub →</a
-            >
-          </div>
-        </div>
+            <div class="front-inner">
+              <div class="avatar-wrap">
+                <img src="avatar.png" alt="AmirG avatar" class="avatar" />
+                <span class="avatar-ring"></span>
+              </div>
 
-        <div class="project-video">
-          <iframe
-            src="https://www.youtube.com/embed/wkJO7vA7ZGs"
-            title="BANDSITE Website"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-            "
-            allowfullscreen
-          >
-          </iframe>
-          <div class="project-info">
-            <h3>BANDSITE Website</h3>
-            <p>
-              A responsive and interactive website for an up-and-coming band.
-              Completed in three sprints during BrainStation bootcamp,
-              integrating dynamic functionality and API-driven content.
-            </p>
-            <p class="tech-stack">Tech: HTML, CSS, SCSS, JavaScript</p>
-            <a
-              href="https://github.com/amirgholizad/amir-gholizad-bandsite"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              >View on GitHub →</a
-            >
-          </div>
-        </div>
+              <div class="identity">
+                <h1 class="name">AmirG!</h1>
+                <p class="title">
+                  Software Developer <span class="dot">·</span> Web Designer
+                </p>
 
-        <div class="project-video">
-          <iframe
-            src="https://www.youtube.com/embed/cD5DdkkP3G8"
-            title="Snaps Website"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-            "
-            allowfullscreen
-          >
-          </iframe>
-          <div class="project-info">
-            <h3>Snaps Website</h3>
-            <p>
-              Building a custom API service replicating mock API functionality.
-              Structured with separate client-side and server-side repositories
-              for seamless integration.
-            </p>
-            <p class="tech-stack">
-              Tech: HTML, CSS, SCSS, JavaScript, React.js, Node.js, Express.js
-            </p>
-            <a
-              href="https://github.com/amirgholizad/amir-gholizad-snaps"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              >View on GitHub →</a
-            >
-          </div>
-        </div>
+                <ul class="contact">
+                  <li>
+                    <svg viewBox="0 0 24 24" class="ico" aria-hidden="true">
+                      <path
+                        d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <a href="tel:+17096912883">+1 647 483 2883</a>
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" class="ico" aria-hidden="true">
+                      <path
+                        d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm0 2.2V18h16V7.2l-8 5-8-5zM19.4 6H4.6l7.4 4.6L19.4 6z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <a href="mailto:a.m.gholizad@gmail.com"
+                      >a.m.gholizad@gmail.com</a
+                    >
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" class="ico" aria-hidden="true">
+                      <path
+                        d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <span class="loc-text">Toronto, Ontario, Canada</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-        <div class="project-video">
-          <iframe
-            src="https://www.youtube.com/embed/GetRndBU4KQ"
-            title="BEAT Website"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-            "
-            allowfullscreen
-          >
-          </iframe>
-          <div class="project-info">
-            <h3>BEAT Website</h3>
-            <p>
-              A platform for Econophysicists and Financial Markets enthusiasts
-              providing computational services: articles, technical indicators,
-              and interactive charting for financial asset monitoring.
-            </p>
-            <p class="tech-stack">
-              Tech: SCSS, JavaScript, React.js, Node.js, Express.js, MySQL,
-              Multer, Supabase
-            </p>
-            <a
-              href="https://github.com/amirgholizad/BEAT"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              >View on GitHub →</a
-            >
-          </div>
-        </div>
+            <div class="brand-mark">AG</div>
+          </section>
 
-        <div class="project-video">
-          <iframe
-            src="https://www.youtube.com/embed/-NHROORAmkc"
-            title="Instock Website"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-            "
-            allowfullscreen
-          >
-          </iframe>
-          <div class="project-info">
-            <h3>Instock Website</h3>
-            <p>
-              An Inventory Management System with full CRUD operations for
-              warehouses and inventories. Data stored in MySQL with foreign key
-              relationships.
-            </p>
-            <p class="tech-stack">
-              Tech: SCSS, JavaScript, React.js, Node.js, Express.js, MySQL
-            </p>
-            <a
-              href="https://github.com/amirgholizad/bug-busters-instock-server"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              >View on GitHub →</a
+          <!-- ---------- BACK ---------- -->
+          <section class="card-face card-back">
+            <button
+              class="flip-cta flip-cta--back"
+              id="flipBackBtn"
+              type="button"
+              aria-label="Flip the card back"
             >
-          </div>
+              <svg
+                viewBox="0 0 24 24"
+                class="flip-cta__icon"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 12a8 8 0 0 1 13.66-5.66M20 12a8 8 0 0 1-13.66 5.66"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M17 3v4h-4M7 21v-4h4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span class="flip-cta__text">Back</span>
+            </button>
+
+            <div class="back-inner">
+              <p class="back-kicker">Let's connect</p>
+              <h2 class="back-title">Find me online</h2>
+
+              <ul class="socials">
+                <li>
+                  <a
+                    href="https://github.com/AmirGholizad"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <span class="social-ico">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                    <span class="social-text"
+                      ><b>GitHub</b><small>@AmirGholizad</small></span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/amirgholizad/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <span class="social-ico">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                    <span class="social-text"
+                      ><b>LinkedIn</b><small>in/amirgholizad</small></span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://docs.google.com/document/d/1qCVSKiO-MxrDRohy1NttNMQs_buzbETPfRO74H6iMQw/edit?tab=t.0"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <span class="social-ico">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.6V9h5.4L13 3.6zM8 13h8v1.6H8V13zm0 3.2h8v1.6H8v-1.6zM8 9.8h4v1.6H8V9.8z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                    <span class="social-text"
+                      ><b>CV</b><small>View résumé</small></span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://sharplines.studio"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <span class="social-ico">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.64a15.7 15.7 0 0 0-1.28-3.32A8 8 0 0 1 18.9 8zM12 4.1c.74 1.02 1.32 2.28 1.69 3.9h-3.38C10.68 6.38 11.26 5.12 12 4.1zM4.26 14a8 8 0 0 1 0-4h3.02a17.9 17.9 0 0 0 0 4H4.26zm.84 2h2.64c.32 1.24.75 2.36 1.28 3.32A8 8 0 0 1 5.1 16zm2.64-8H5.1a8 8 0 0 1 3.92-3.32C8.49 5.64 8.06 6.76 7.74 8zM12 19.9c-.74-1.02-1.32-2.28-1.69-3.9h3.38c-.37 1.62-.95 2.88-1.69 3.9zM14.1 14H9.9a15.9 15.9 0 0 1 0-4h4.2a15.9 15.9 0 0 1 0 4zm.62 5.32c.53-.96.96-2.08 1.28-3.32h2.64a8 8 0 0 1-3.92 3.32zM16.72 14a17.9 17.9 0 0 0 0-4h3.02a8 8 0 0 1 0 4h-3.02z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                    <span class="social-text"
+                      ><b>Website</b><small>sharplines.studio</small></span
+                    >
+                  </a>
+                </li>
+              </ul>
+
+              <p class="back-footer">
+                AmirG! &middot; Software Developer &amp; Web Designer
+              </p>
+            </div>
+          </section>
         </div>
       </div>
+    </main>
 
-      <div class="projects-grid">
-        <div class="project-card">
-          <img src="./assets/images/project-1.jpg" alt="CRUD Project" />
-          <h3>CRUD (FastAPI + PostgreSQL)</h3>
-          <a
-            href="https://github.com/AmirGholizad/AmirG.dev-CRUD"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-card-link"
-            >View on GitHub →</a
-          >
-        </div>
-        <div class="project-card">
-          <img src="./assets/images/project-2.jpg" alt="Sentiment Analysis" />
-          <h3>Sentiment Analysis</h3>
-          <a
-            href="https://github.com/AmirGholizad/imdb_sentiment_analysis"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-card-link"
-            >View on GitHub →</a
-          >
-        </div>
-        <div class="project-card">
-          <img
-            src="./assets/images/project-3.jpg"
-            alt="Dimensionality Reduction"
-          />
-          <h3>Dimensionality Reduction</h3>
-          <a
-            href="https://github.com/AmirGholizad/tails_of_distributions"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-card-link"
-            >View on GitHub →</a
-          >
-        </div>
-      </div>
-    </template>
-
-    <!-- Links/Resources Template -->
-    <template id="tpl-links">
-      <h2 class="section-title">Get In Touch</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <i class="fas fa-envelope"></i>
-          <h3>Email</h3>
-          <a href="mailto:a.m.gholizad@gmail.com">a.m.gholizad@gmail.com</a>
-        </div>
-        <div class="contact-card">
-          <i class="fab fa-linkedin"></i>
-          <h3>LinkedIn</h3>
-          <a
-            href="https://www.linkedin.com/in/amirgholizad/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Connect with me</a
-          >
-        </div>
-        <div class="contact-card">
-          <i class="fab fa-github"></i>
-          <h3>GitHub</h3>
-          <a
-            href="https://github.com/AmirGholizad"
-            target="_blank"
-            rel="noopener noreferrer"
-            >View my code</a
-          >
-        </div>
-      </div>
-    </template>
-
-    <!-- Resources Template (same as links for now) -->
-    <template id="tpl-resources">
-      <h2 class="section-title">Resources & Links</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <i class="fas fa-envelope"></i>
-          <h3>Email</h3>
-          <a href="mailto:a.m.gholizad@gmail.com">a.m.gholizad@gmail.com</a>
-        </div>
-        <div class="contact-card">
-          <i class="fab fa-linkedin"></i>
-          <h3>LinkedIn</h3>
-          <a
-            href="https://www.linkedin.com/in/amirgholizad/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Connect with me</a
-          >
-        </div>
-        <div class="contact-card">
-          <i class="fab fa-github"></i>
-          <h3>GitHub</h3>
-          <a
-            href="https://github.com/AmirGholizad"
-            target="_blank"
-            rel="noopener noreferrer"
-            >View my code</a
-          >
-        </div>
-      </div>
-    </template>
-
-    <!-- Certificates Template -->
-    <template id="tpl-certificates">
-      <h2 class="section-title">Certifications</h2>
-      <div class="certificates-grid">
-        <div class="certificate-card">
-          <i class="fas fa-certificate"></i>
-          <h3>AWS Certified Cloud Practitioner</h3>
-          <p>Amazon Web Services</p>
-          <a
-            href="https://www.credly.com/badges/6d3d2ced-9b76-43b9-9b17-010351233132/linked_in_profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cert-link"
-            >View Credential →</a
-          >
-        </div>
-      </div>
-    </template>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2024 Amir Gholizad. All rights reserved.</p>
-    </footer>
-
-    <script src="./scripts/script.js"></script>
+    <script src="gsap.min.js"></script>
+    <script src="logos-data.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

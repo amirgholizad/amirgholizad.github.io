@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /styles/
-Disallow: /scripts/
 
 Sitemap: https://amirgholizad.github.io/sitemap.xml

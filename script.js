@@ -95,12 +95,26 @@
   const ROW_H = 112;   // px per line
   const GAP = 48;      // px between logos in a line
 
-  // One logo cell (svg or text chip) with a randomized size + opacity.
+  // Deterministic PRNG (mulberry32). Reseeded to a fixed value at the start of
+  // every build(), so the field looks IDENTICAL on every page load and on every
+  // rebuild — no per-load variation, and growing the grid can't reshuffle it.
+  const SEED = 0x1a2b3c4d;
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = (a + 0x6d2b79f5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  let rng = mulberry32(SEED);
+
+  // One logo cell (svg or text chip) with a deterministic size + opacity.
   function makeItem(data) {
     const el = document.createElement("div");
     el.className = "logo-item";
     el.style.setProperty("--gap", GAP + "px");
-    const size = 34 + Math.random() * 30; // 34–64px
+    const size = 34 + rng() * 30; // 34–64px
     if (data.d) {
       el.style.width = size + "px";
       el.style.height = size + "px";
@@ -111,7 +125,7 @@
       el.style.fontSize = size * 0.34 + "px";
       el.innerHTML = '<span class="logo-chip">' + data.name + "</span>";
     }
-    el.style.opacity = (0.2 + Math.random() * 0.2).toFixed(3); // 20–40%
+    el.style.opacity = (0.2 + rng() * 0.2).toFixed(3); // 20–40%
     return el;
   }
 
@@ -129,6 +143,9 @@
     if (rowCount <= builtRowCount) return;
     builtRowCount = rowCount;
 
+    // Reseed so this build reproduces the exact same layout as the first one.
+    rng = mulberry32(SEED);
+
     field.textContent = "";
     const lines = document.createElement("div");
     lines.className = "logo-lines";
@@ -142,8 +159,8 @@
       const track = document.createElement("div");
       track.className = "logo-track";
       // Vary pace & phase per line so rows don't march in lockstep.
-      track.style.setProperty("--dur", (46 + Math.random() * 34).toFixed(1) + "s");
-      track.style.setProperty("--delay", (-Math.random() * 40).toFixed(1) + "s");
+      track.style.setProperty("--dur", (46 + rng() * 34).toFixed(1) + "s");
+      track.style.setProperty("--delay", (-rng() * 40).toFixed(1) + "s");
       line.appendChild(track);
       lines.appendChild(line);
 

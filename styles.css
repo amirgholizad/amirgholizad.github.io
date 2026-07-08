@@ -397,7 +397,7 @@ html, body {
 @media (max-width: 560px) {
   .card { width: min(93vw, 470px); aspect-ratio: 1.42 / 1; }
   .card-front, .card-back { padding: clamp(14px, 4.5vw, 22px); }
-  .front-inner { gap: clamp(12px, 3.5vw, 20px); }
+  .front-inner { gap: clamp(8px, 2.5vw, 14px); }
   .avatar-wrap { width: clamp(72px, 23%, 104px); }
   .contact a, .contact .loc-text { font-size: 12px; }  /* keep long lines on one row */
   .socials { gap: 8px; }                  /* stays 2 columns so it fits the card */

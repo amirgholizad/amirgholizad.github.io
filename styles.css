@@ -544,9 +544,6 @@ body {
   .card-back {
     padding: clamp(14px, 4.5vw, 22px);
   }
-  .front-inner {
-    gap: 1rem;
-  }
   .avatar-wrap {
     width: clamp(72px, 23%, 104px);
   }

@@ -1,5 +1,9 @@
 /* ---------- Reset & base ---------- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   --cream-1: #fbf3e2;
@@ -13,12 +17,17 @@
   --card-radius: 26px;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
-  overflow: hidden;               /* non-scrollable */
+  overflow: hidden; /* non-scrollable */
   overscroll-behavior: none;
-  font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Poppins",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   color: var(--ink);
   background: var(--cream-2);
 }
@@ -28,16 +37,28 @@ html, body {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(120deg, var(--cream-1), var(--cream-3), var(--cream-2), var(--cream-4));
+  background: linear-gradient(
+    120deg,
+    var(--cream-1),
+    var(--cream-3),
+    var(--cream-2),
+    var(--cream-4)
+  );
   background-size: 300% 300%;
   animation: sheen 18s ease-in-out infinite;
   overflow: hidden;
 }
 
 @keyframes sheen {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* soft drifting blobs for extra depth */
@@ -49,28 +70,72 @@ html, body {
   mix-blend-mode: soft-light;
   will-change: transform;
 }
-.blob-1 { width: 46vmax; height: 46vmax; left: -12vmax; top: -14vmax;
+.blob-1 {
+  width: 46vmax;
+  height: 46vmax;
+  left: -12vmax;
+  top: -14vmax;
   background: radial-gradient(circle, #fff7e8, transparent 70%);
-  animation: drift1 22s ease-in-out infinite; }
-.blob-2 { width: 40vmax; height: 40vmax; right: -12vmax; top: 6vmax;
+  animation: drift1 22s ease-in-out infinite;
+}
+.blob-2 {
+  width: 40vmax;
+  height: 40vmax;
+  right: -12vmax;
+  top: 6vmax;
   background: radial-gradient(circle, #e8c99a, transparent 70%);
-  animation: drift2 26s ease-in-out infinite; }
-.blob-3 { width: 42vmax; height: 42vmax; left: 8vmax; bottom: -16vmax;
+  animation: drift2 26s ease-in-out infinite;
+}
+.blob-3 {
+  width: 42vmax;
+  height: 42vmax;
+  left: 8vmax;
+  bottom: -16vmax;
   background: radial-gradient(circle, #f3ddb6, transparent 70%);
-  animation: drift3 30s ease-in-out infinite; }
-.blob-4 { width: 30vmax; height: 30vmax; right: 4vmax; bottom: -8vmax;
+  animation: drift3 30s ease-in-out infinite;
+}
+.blob-4 {
+  width: 30vmax;
+  height: 30vmax;
+  right: 4vmax;
+  bottom: -8vmax;
   background: radial-gradient(circle, #fff3dc, transparent 70%);
-  animation: drift1 24s ease-in-out infinite reverse; }
+  animation: drift1 24s ease-in-out infinite reverse;
+}
 
-@keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(6vmax,4vmax) scale(1.12); } }
-@keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-5vmax,5vmax) scale(1.1); } }
-@keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(4vmax,-5vmax) scale(1.15); } }
+@keyframes drift1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6vmax, 4vmax) scale(1.12);
+  }
+}
+@keyframes drift2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-5vmax, 5vmax) scale(1.1);
+  }
+}
+@keyframes drift3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(4vmax, -5vmax) scale(1.15);
+  }
+}
 
 /* ---------- Diagonal skill lines ---------- */
 .logo-field {
   position: fixed;
   inset: 0;
-  z-index: 0;              /* above gradient, below the card stage */
+  z-index: 0; /* above gradient, below the card stage */
   overflow: hidden;
   pointer-events: none;
 }
@@ -102,8 +167,12 @@ html, body {
   will-change: transform;
 }
 @keyframes marquee {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .logo-item {
@@ -111,12 +180,12 @@ html, body {
   margin-right: var(--gap, 48px);
   display: grid;
   place-items: center;
-  color: #7a5f3a;          /* warm sepia tint, unified with the theme */
+  color: #7a5f3a; /* warm sepia tint, unified with the theme */
 }
 .logo-item svg {
   width: 100%;
   height: 100%;
-  fill: currentColor;      /* Simple Icons paths inherit this */
+  fill: currentColor; /* Simple Icons paths inherit this */
   display: block;
 }
 .logo-item .logo-chip {
@@ -132,7 +201,9 @@ html, body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logo-field { display: none; }
+  .logo-field {
+    display: none;
+  }
 }
 
 /* ---------- Stage & 3D scene ---------- */
@@ -177,7 +248,7 @@ html, body {
   inset: 0;
   border-radius: var(--card-radius);
   transform-origin: 50% 50%;
-  overflow: hidden;        /* safe: faces hide via GSAP autoAlpha, not backface */
+  overflow: hidden; /* safe: faces hide via GSAP autoAlpha, not backface */
   box-shadow:
     0 30px 60px -20px rgba(120, 90, 50, 0.45),
     0 8px 20px -8px rgba(120, 90, 50, 0.3),
@@ -185,18 +256,28 @@ html, body {
 }
 
 /* Back starts hidden; GSAP toggles visibility/rotation. */
-.card-back { visibility: hidden; }
+.card-back {
+  visibility: hidden;
+}
 
 .card-front {
-  background:
-    radial-gradient(120% 130% at 0% 0%, #fffaf0 0%, #f7ecd6 42%, #efdcbc 100%);
+  background: radial-gradient(
+    120% 130% at 0% 0%,
+    #fffaf0 0%,
+    #f7ecd6 42%,
+    #efdcbc 100%
+  );
   padding: clamp(18px, 4vw, 30px);
   display: flex;
   align-items: center;
 }
 .card-back {
-  background:
-    radial-gradient(120% 130% at 100% 0%, #fbf1dc 0%, #ecd9b6 55%, #e2c99e 100%);
+  background: radial-gradient(
+    120% 130% at 100% 0%,
+    #fbf1dc 0%,
+    #ecd9b6 55%,
+    #e2c99e 100%
+  );
   padding: clamp(18px, 4vw, 30px);
   display: flex;
   flex-direction: column;
@@ -209,7 +290,11 @@ html, body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent 30%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35),
+    transparent 30%
+  );
   pointer-events: none;
 }
 
@@ -233,12 +318,26 @@ html, body {
   background: linear-gradient(135deg, var(--accent), #b8823f);
   box-shadow: 0 6px 14px -4px rgba(150, 100, 40, 0.6);
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
 }
-.flip-cta:hover { transform: translateY(-1px) scale(1.05); box-shadow: 0 10px 20px -6px rgba(150, 100, 40, 0.7); filter: brightness(1.05); }
-.flip-cta:active { transform: scale(0.97); }
-.flip-cta__icon { width: 15px; height: 15px; }
-.flip-cta--back { background: linear-gradient(135deg, #a9825a, #8a6740); }
+.flip-cta:hover {
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 10px 20px -6px rgba(150, 100, 40, 0.7);
+  filter: brightness(1.05);
+}
+.flip-cta:active {
+  transform: scale(0.97);
+}
+.flip-cta__icon {
+  width: 15px;
+  height: 15px;
+}
+.flip-cta--back {
+  background: linear-gradient(135deg, #a9825a, #8a6740);
+}
 
 /* ---------- Front content ---------- */
 .front-inner {
@@ -246,7 +345,7 @@ html, body {
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: clamp(16px, 4vw, 28px);
+  gap: 2rem;
   width: 100%;
 }
 
@@ -271,9 +370,15 @@ html, body {
   border: 2px dashed rgba(201, 155, 95, 0.55);
   animation: spinRing 14s linear infinite;
 }
-@keyframes spinRing { to { transform: rotate(360deg); } }
+@keyframes spinRing {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-.identity { min-width: 0; }
+.identity {
+  min-width: 0;
+}
 .name {
   font-size: clamp(28px, 7vw, 40px);
   font-weight: 700;
@@ -290,7 +395,11 @@ html, body {
   font-weight: 500;
   color: var(--ink-soft);
 }
-.title .dot { color: var(--accent); font-weight: 700; padding: 0 4px; }
+.title .dot {
+  color: var(--accent);
+  font-weight: 700;
+  padding: 0 4px;
+}
 
 .contact {
   list-style: none;
@@ -298,9 +407,15 @@ html, body {
   display: grid;
   gap: 8px;
 }
-.contact li { display: flex; align-items: center; gap: 9px; }
+.contact li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
 .contact .ico {
-  width: 18px; height: 18px; flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
   color: var(--accent);
 }
 .contact a {
@@ -313,7 +428,9 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.contact a:hover { color: var(--accent); }
+.contact a:hover {
+  color: var(--accent);
+}
 .contact .loc-text {
   color: var(--ink);
   font-size: clamp(12px, 3vw, 14px);
@@ -335,7 +452,11 @@ html, body {
 }
 
 /* ---------- Back content ---------- */
-.back-inner { position: relative; z-index: 2; width: 100%; }
+.back-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
 .back-kicker {
   font-size: clamp(11px, 2.6vw, 12px);
   text-transform: uppercase;
@@ -367,7 +488,10 @@ html, body {
   color: var(--ink);
   background: rgba(255, 250, 240, 0.55);
   border: 1px solid rgba(201, 155, 95, 0.28);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .socials a:hover {
   transform: translateY(-2px);
@@ -375,16 +499,33 @@ html, body {
   box-shadow: 0 8px 18px -8px rgba(120, 90, 50, 0.5);
 }
 .social-ico {
-  width: 30px; height: 30px; flex: 0 0 auto;
-  display: grid; place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
   border-radius: 9px;
   color: #fff;
   background: linear-gradient(135deg, var(--accent), #a9793f);
 }
-.social-ico svg { width: 17px; height: 17px; }
-.social-text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
-.social-text b { font-size: clamp(12px, 2.8vw, 14px); font-weight: 600; }
-.social-text small { font-size: clamp(10px, 2.4vw, 12px); color: var(--ink-soft); }
+.social-ico svg {
+  width: 17px;
+  height: 17px;
+}
+.social-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  min-width: 0;
+}
+.social-text b {
+  font-size: clamp(12px, 2.8vw, 14px);
+  font-weight: 600;
+}
+.social-text small {
+  font-size: clamp(10px, 2.4vw, 12px);
+  color: var(--ink-soft);
+}
 
 .back-footer {
   margin-top: clamp(8px, 2vw, 13px);
@@ -395,25 +536,69 @@ html, body {
 
 /* ---------- Small screens (portrait phones) ---------- */
 @media (max-width: 560px) {
-  .card { width: min(93vw, 470px); aspect-ratio: 1.42 / 1; }
-  .card-front, .card-back { padding: clamp(14px, 4.5vw, 22px); }
-  .front-inner { gap: clamp(8px, 2.5vw, 14px); }
-  .avatar-wrap { width: clamp(72px, 23%, 104px); }
-  .contact a, .contact .loc-text { font-size: 12px; }  /* keep long lines on one row */
-  .socials { gap: 8px; }                  /* stays 2 columns so it fits the card */
-  .socials a { gap: 8px; padding: 8px 10px; border-radius: 12px; }
-  .social-ico { width: 26px; height: 26px; border-radius: 8px; }
-  .social-ico svg { width: 15px; height: 15px; }
-  .flip-cta { top: 10px; right: 10px; padding: 6px 12px; }
-  .brand-mark { bottom: 12px; right: 14px; }
+  .card {
+    width: min(93vw, 470px);
+    aspect-ratio: 1.42 / 1;
+  }
+  .card-front,
+  .card-back {
+    padding: clamp(14px, 4.5vw, 22px);
+  }
+  .front-inner {
+    gap: 1rem;
+  }
+  .avatar-wrap {
+    width: clamp(72px, 23%, 104px);
+  }
+  .contact a,
+  .contact .loc-text {
+    font-size: 12px;
+  } /* keep long lines on one row */
+  .socials {
+    gap: 8px;
+  } /* stays 2 columns so it fits the card */
+  .socials a {
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 12px;
+  }
+  .social-ico {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+  }
+  .social-ico svg {
+    width: 15px;
+    height: 15px;
+  }
+  .flip-cta {
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+  }
+  .brand-mark {
+    bottom: 12px;
+    right: 14px;
+  }
 }
 
 /* ---------- Short / landscape: size by height so the card never clips ---------- */
 @media (max-height: 430px) {
-  .card { width: auto; height: min(86vh, 300px); aspect-ratio: 1.68 / 1; }
-  .stage { padding: 14px; }
+  .card {
+    width: auto;
+    height: min(86vh, 300px);
+    aspect-ratio: 1.68 / 1;
+  }
+  .stage {
+    padding: 14px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gradient-bg, .blob, .avatar-ring { animation-duration: 0.001ms; animation-iteration-count: 1; }
+  .gradient-bg,
+  .blob,
+  .avatar-ring {
+    animation-duration: 0.001ms;
+    animation-iteration-count: 1;
+  }
 }

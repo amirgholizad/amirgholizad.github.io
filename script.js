@@ -210,9 +210,11 @@
 
     for (let r = 0; r < rows.length; r++) {
       const row = rows[r];
-      let offset = (t * row.speed + row.phase) % row.seqW;
+      // Run the offset backwards to drift the opposite way, but keep it in
+      // [0, seqW) and keep the `- offset` shift so the three tile copies always
+      // bracket zero — full edge-to-edge cover, no blank side.
+      let offset = (row.phase - t * row.speed) % row.seqW;
       if (offset < 0) offset += row.seqW;
-      // Three tile copies (seqW ≥ full row width) guarantee edge-to-edge cover.
       for (let k = -1; k <= 1; k++) {
         const shift = k * row.seqW - offset;
         for (let j = 0; j < row.items.length; j++) {

@@ -119,7 +119,7 @@
   let coverW = 0, coverH = 0;        // half-extents of the viewport in the rotated frame
   let rows = [];
 
-  function chipFont(fs) { return "600 " + fs + "px Poppins, sans-serif"; }
+  function chipFont(fs) { return "600 " + fs + "px Rubik, sans-serif"; }
 
   function build() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -232,7 +232,7 @@
   build();
   raf = requestAnimationFrame(frame);
 
-  // Chip widths depend on the Poppins metrics; re-measure once it loads.
+  // Chip widths depend on the Rubik metrics; re-measure once it loads.
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(build);
   }

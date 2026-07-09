@@ -81,23 +81,27 @@
 
 
 /* =========================================================================
-   Diagonal skill lines (background)
-   The stack is laid into repeated rows; the whole grid is rotated so each
-   row reads as a diagonal line. Every row is a seamless CSS marquee (two
-   identical sequences translating -50%), giving an endless diagonal flow.
+   Diagonal skill field (background) — single <canvas> renderer.
+   The whole field is drawn on ONE canvas layer, rotated 24°, with each row
+   drifting horizontally. Because it's a single compositor layer redrawn per
+   frame (no per-row GPU layers, no CSS-animation loop boundaries), rows can't
+   get evicted/flicker the way the DOM marquee did.
    ========================================================================= */
 (function () {
-  const field = document.getElementById("logoField");
+  const canvas = document.getElementById("logoCanvas");
   const LOGOS = window.STACK_LOGOS || [];
-  if (!field || !LOGOS.length) return;
+  if (!canvas || !LOGOS.length) return;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+  // Respect reduced-motion (CSS also hides the canvas, but skip work too).
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const ROW_H = 112;   // px per line
-  const GAP = 48;      // px between logos in a line
+  const ROW_H = 112;                 // px per diagonal line
+  const GAP = 48;                    // px between logos in a line
+  const ANGLE = (24 * Math.PI) / 180;
+  const COLOR = "#7a5f3a";           // warm sepia tint
 
-  // Deterministic PRNG (mulberry32). Reseeded to a fixed value at the start of
-  // every build(), so the field looks IDENTICAL on every page load and on every
-  // rebuild — no per-load variation, and growing the grid can't reshuffle it.
+  // Deterministic PRNG (mulberry32) → identical field on every load/rebuild.
   const SEED = 0x1a2b3c4d;
   function mulberry32(a) {
     return function () {
@@ -107,89 +111,134 @@
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
   }
-  let rng = mulberry32(SEED);
 
-  // One logo cell (svg or text chip) with a deterministic size + opacity.
-  function makeItem(data) {
-    const el = document.createElement("div");
-    el.className = "logo-item";
-    el.style.setProperty("--gap", GAP + "px");
-    const size = 34 + rng() * 30; // 34–64px
-    if (data.d) {
-      el.style.width = size + "px";
-      el.style.height = size + "px";
-      el.innerHTML =
-        '<svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="' +
-        data.d + '"/></svg>';
-    } else {
-      el.style.fontSize = size * 0.34 + "px";
-      el.innerHTML = '<span class="logo-chip">' + data.name + "</span>";
-    }
-    el.style.opacity = (0.2 + rng() * 0.2).toFixed(3); // 20–40%
-    return el;
-  }
+  // Cache a Path2D per SVG logo (null for text-chip logos).
+  const paths = LOGOS.map((d) => (d.d ? new Path2D(d.d) : null));
 
-  let builtRowCount = 0;
+  let W = 0, H = 0, dpr = 1;
+  let coverW = 0, coverH = 0;        // half-extents of the viewport in the rotated frame
+  let rows = [];
+
+  function chipFont(fs) { return "600 " + fs + "px Poppins, sans-serif"; }
 
   function build() {
-    // Oversized (155vmax) rotated grid.
-    const vmax = Math.max(window.innerWidth, window.innerHeight);
-    const gridSize = vmax * 1.55;
-    const rowCount = Math.ceil(gridSize / ROW_H) + 1;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
 
-    // Only (re)build when more rows are actually needed — i.e. the viewport's
-    // larger dimension grew past what we've already covered. Ordinary resizes,
-    // DevTools, and the mobile URL bar leave the existing pattern untouched.
-    if (rowCount <= builtRowCount) return;
-    builtRowCount = rowCount;
+    const c = Math.abs(Math.cos(ANGLE)), s = Math.abs(Math.sin(ANGLE));
+    coverW = (W / 2) * c + (H / 2) * s;   // how far a row must extend left/right
+    coverH = (W / 2) * s + (H / 2) * c;   // how far rows must extend up/down
 
-    // Reseed so this build reproduces the exact same layout as the first one.
-    rng = mulberry32(SEED);
+    const rng = mulberry32(SEED);
+    const rowCount = Math.ceil((coverH * 2) / ROW_H) + 2;
+    const needW = coverW * 2 + 200;       // each row's tiling unit must span this
 
-    field.textContent = "";
-    const lines = document.createElement("div");
-    lines.className = "logo-lines";
-    field.appendChild(lines);
-
+    rows = [];
     for (let r = 0; r < rowCount; r++) {
-      const line = document.createElement("div");
-      line.className = "logo-line";
-      line.style.setProperty("--row-h", ROW_H + "px");
-
-      const track = document.createElement("div");
-      track.className = "logo-track";
-      // Vary pace & phase per line so rows don't march in lockstep.
-      track.style.setProperty("--dur", (46 + rng() * 34).toFixed(1) + "s");
-      track.style.setProperty("--delay", (-rng() * 40).toFixed(1) + "s");
-      line.appendChild(track);
-      lines.appendChild(line);
-
-      // 1) Base sequence in the source order (sizes/opacity still vary per item).
-      const base = LOGOS.map(makeItem);
-      base.forEach((el) => track.appendChild(el));
-
-      // 2) Repeat the base until one "unit" is wider than the line, so the
-      //    marquee window is always full (no gaps → no disappearing rows).
-      const seqW = track.scrollWidth || 1;
-      const reps = Math.max(1, Math.ceil(gridSize / seqW));
-      for (let i = 1; i < reps; i++) {
-        base.forEach((el) => track.appendChild(el.cloneNode(true)));
+      const speed = 12 + rng() * 10;      // px/sec drift
+      const items = [];
+      let x = 0, guard = 0;
+      // Lay logos (source order, deterministic per-cell size/opacity) until the
+      // sequence is wide enough to tile seamlessly across the whole row.
+      while (x < needW && guard++ < 5000) {
+        for (let i = 0; i < LOGOS.length && x < needW; i++) {
+          const data = LOGOS[i];
+          const size = 34 + rng() * 30;   // 34–64px
+          const opacity = 0.2 + rng() * 0.2;
+          let w;
+          if (data.d) {
+            w = size;
+          } else {
+            const fs = size * 0.34;
+            ctx.font = chipFont(fs);
+            w = ctx.measureText(data.name).width + fs * 1.4 + 3; // ~0.7em padding + border
+          }
+          items.push({ i, size, opacity, x, w, text: data.d ? null : data.name });
+          x += w + GAP;
+        }
       }
-
-      // 3) Clone the whole unit once so the two halves are IDENTICAL, making
-      //    the translateX(-50%) loop perfectly seamless.
-      const unit = Array.prototype.slice.call(track.children);
-      unit.forEach((el) => track.appendChild(el.cloneNode(true)));
+      const phase = rng() * x;            // desync rows
+      rows.push({ y: (r - (rowCount - 1) / 2) * ROW_H, items, seqW: x, speed, phase });
     }
+  }
+
+  function drawItem(it, dx, y) {
+    ctx.globalAlpha = it.opacity;
+    if (it.text === null) {
+      ctx.save();
+      ctx.translate(dx, y - it.size / 2);
+      ctx.scale(it.size / 24, it.size / 24); // 24×24 viewBox → size px
+      ctx.fillStyle = COLOR;
+      ctx.fill(paths[it.i]);
+      ctx.restore();
+    } else {
+      const fs = it.size * 0.34;
+      const h = fs * 1.5;
+      const padX = fs * 0.7;
+      ctx.font = chipFont(fs);
+      ctx.textBaseline = "middle";
+      // pill outline
+      const rr = h / 2;
+      ctx.beginPath();
+      ctx.moveTo(dx + rr, y - h / 2);
+      ctx.arcTo(dx + it.w, y - h / 2, dx + it.w, y + h / 2, rr);
+      ctx.arcTo(dx + it.w, y + h / 2, dx, y + h / 2, rr);
+      ctx.arcTo(dx, y + h / 2, dx, y - h / 2, rr);
+      ctx.arcTo(dx, y - h / 2, dx + it.w, y - h / 2, rr);
+      ctx.closePath();
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = COLOR;
+      ctx.stroke();
+      ctx.fillStyle = COLOR;
+      ctx.fillText(it.text, dx + padX, y + 0.5);
+    }
+  }
+
+  let raf = 0;
+  function frame(now) {
+    const t = now / 1000;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.translate(W / 2, H / 2);
+    ctx.rotate(ANGLE);
+    ctx.textAlign = "left";
+
+    for (let r = 0; r < rows.length; r++) {
+      const row = rows[r];
+      let offset = (t * row.speed + row.phase) % row.seqW;
+      if (offset < 0) offset += row.seqW;
+      // Three tile copies (seqW ≥ full row width) guarantee edge-to-edge cover.
+      for (let k = -1; k <= 1; k++) {
+        const shift = k * row.seqW - offset;
+        for (let j = 0; j < row.items.length; j++) {
+          const it = row.items[j];
+          const dx = it.x + shift;
+          if (dx > coverW || dx + it.w < -coverW) continue; // cull off-screen
+          drawItem(it, dx, row.y);
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+    raf = requestAnimationFrame(frame);
   }
 
   build();
+  raf = requestAnimationFrame(frame);
 
-  // Debounced: only grows the grid on a large enlargement / orientation jump.
-  // The guard in build() makes this a no-op for everyday resizes.
+  // Chip widths depend on the Poppins metrics; re-measure once it loads.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(build);
+  }
+
+  // Rebuild on resize (cheap + deterministic, so no visible reshuffle).
   let rt;
   window.addEventListener("resize", function () {
     clearTimeout(rt);
-    rt = setTimeout(build, 250);
+    rt = setTimeout(build, 200);
   });
 })();

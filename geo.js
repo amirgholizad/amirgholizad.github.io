@@ -1,15 +1,25 @@
 /* =========================================================================
-   Regional personalization
+   Regional personalization + splash gate
    Best-effort IP geolocation: if the visitor is in Newfoundland & Labrador,
-   swap the Toronto defaults for the local (709) number and St. John's.
+   swap the Toronto defaults for the local (709) number and St. John's. The
+   page is held behind a splash (body.is-loading) until this resolves, so the
+   correct details are already in place when the card is revealed — no flash.
    No permission prompt (IP-based, not the browser Geolocation API), and any
    failure silently leaves the defaults — which is also what crawlers and
    no-JS visitors see.
    ========================================================================= */
 (function () {
+  function reveal() {
+    // Drop the splash to show the (already-updated) card. Idempotent.
+    document.body.classList.remove("is-loading");
+  }
+
   const phoneEl = document.getElementById("card-phone");
   const locEl = document.getElementById("card-loc");
-  if (!phoneEl && !locEl) return;
+  if (!phoneEl && !locEl) {
+    reveal();
+    return;
+  }
 
   const NL_PHONE_TEXT = "+1 709 691 2883";
   const NL_PHONE_HREF = "tel:+17096912883";
@@ -26,11 +36,12 @@
   // Test override: append ?nl=1 to the URL to preview the NL variant anywhere.
   if (/[?&]nl=1\b/.test(window.location.search)) {
     applyNewfoundland();
+    reveal();
     return;
   }
 
   const controller = new AbortController();
-  const timer = setTimeout(function () { controller.abort(); }, 4000);
+  const timer = setTimeout(function () { controller.abort(); }, 3500);
 
   fetch("https://ipwho.is/", { signal: controller.signal })
     .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
@@ -43,5 +54,9 @@
       if (inNewfoundland) applyNewfoundland();
     })
     .catch(function () { /* offline / blocked / not-in-NL → keep defaults */ })
-    .finally(function () { clearTimeout(timer); });
+    .finally(function () {
+      // Apply happens before reveal above, so the reveal shows the final state.
+      clearTimeout(timer);
+      reveal();
+    });
 })();

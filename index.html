@@ -97,8 +97,22 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <noscript>
+      <style>
+        .loader {
+          display: none !important;
+        }
+      </style>
+    </noscript>
   </head>
-  <body>
+  <body class="is-loading">
+    <!-- Splash: held until geolocation resolves, so the correct number and
+         location are already applied when the card is revealed (no flash). -->
+    <div class="loader" id="loader">
+      <span class="loader__ring" aria-hidden="true"></span>
+      <span class="loader__label">Loading…</span>
+    </div>
+
     <!-- Animated cream gradient backdrop -->
     <div class="gradient-bg" aria-hidden="true">
       <span class="blob blob-1"></span>
@@ -329,5 +343,11 @@
     <script src="logos-data.js"></script>
     <script src="script.js"></script>
     <script src="geo.js"></script>
+    <script>
+      // Fail-safe: never leave the splash up (e.g. if geo.js fails to load).
+      setTimeout(function () {
+        document.body.classList.remove("is-loading");
+      }, 5000);
+    </script>
   </body>
 </html>

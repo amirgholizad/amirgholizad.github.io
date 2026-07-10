@@ -13,7 +13,7 @@
     // Drop the splash to show the (already-updated) card. Idempotent.
     document.body.classList.remove("is-loading");
   }
-
+  const resumeEl = document.getElementById("card-resume");
   const phoneEl = document.getElementById("card-phone");
   const locEl = document.getElementById("card-loc");
   if (!phoneEl && !locEl) {
@@ -24,13 +24,22 @@
   const NL_PHONE_TEXT = "+1 709 691 2883";
   const NL_PHONE_HREF = "tel:+17096912883";
   const NL_LOCATION = "St. John's, NL, Canada";
+  const STJOHNS_RESUME =
+    "https://docs.google.com/document/d/1jTm8_Ek8gDyGtRG_h53pabuT_HQoU5hIE4WmUrD4H9w/edit?tab=t.0";
 
   function applyNewfoundland() {
     if (phoneEl) {
       phoneEl.textContent = NL_PHONE_TEXT;
       phoneEl.setAttribute("href", NL_PHONE_HREF);
     }
-    if (locEl) locEl.textContent = NL_LOCATION;
+
+    if (locEl) {
+      locEl.textContent = NL_LOCATION;
+    }
+
+    if (resumeEl) {
+      resumeEl.href = STJOHNS_RESUME;
+    }
   }
 
   // Test override: append ?nl=1 to the URL to preview the NL variant anywhere.
@@ -41,10 +50,14 @@
   }
 
   const controller = new AbortController();
-  const timer = setTimeout(function () { controller.abort(); }, 3500);
+  const timer = setTimeout(function () {
+    controller.abort();
+  }, 3500);
 
   fetch("https://ipwho.is/", { signal: controller.signal })
-    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (r) {
+      return r.ok ? r.json() : Promise.reject();
+    })
     .then(function (data) {
       if (!data || data.success === false) return;
 
@@ -53,7 +66,9 @@
         (data.region_code === "NL" || /newfoundland/i.test(data.region || ""));
       if (inNewfoundland) applyNewfoundland();
     })
-    .catch(function () { /* offline / blocked / not-in-NL → keep defaults */ })
+    .catch(function () {
+      /* offline / blocked / not-in-NL → keep defaults */
+    })
     .finally(function () {
       // Apply happens before reveal above, so the reveal shows the final state.
       clearTimeout(timer);

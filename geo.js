@@ -1,16 +1,5 @@
-/* =========================================================================
-   Regional personalization + splash gate
-   Best-effort IP geolocation: if the visitor is in Newfoundland & Labrador,
-   swap the Toronto defaults for the local (709) number and St. John's. The
-   page is held behind a splash (body.is-loading) until this resolves, so the
-   correct details are already in place when the card is revealed — no flash.
-   No permission prompt (IP-based, not the browser Geolocation API), and any
-   failure silently leaves the defaults — which is also what crawlers and
-   no-JS visitors see.
-   ========================================================================= */
 (function () {
   function reveal() {
-    // Drop the splash to show the (already-updated) card. Idempotent.
     document.body.classList.remove("is-loading");
   }
   const resumeEl = document.getElementById("card-resume");
@@ -24,7 +13,7 @@
   const NL_PHONE_TEXT = "+1 709 691 2883";
   const NL_PHONE_HREF = "tel:+17096912883";
   const NL_LOCATION = "St. John's, NL, Canada";
-  const STJOHNS_RESUME = "assets/files/Amir_Gholizad_Resume_St_Johns.pdf";
+  const STJOHNS_RESUME = "assets/files/Amir_Gholizad_Resume_2.pdf";
 
   function applyNewfoundland() {
     if (phoneEl) {
@@ -41,7 +30,6 @@
     }
   }
 
-  // Test override: append ?nl=1 to the URL to preview the NL variant anywhere.
   if (/[?&]nl=1\b/.test(window.location.search)) {
     applyNewfoundland();
     reveal();
@@ -65,11 +53,8 @@
         (data.region_code === "NL" || /newfoundland/i.test(data.region || ""));
       if (inNewfoundland) applyNewfoundland();
     })
-    .catch(function () {
-      /* offline / blocked / not-in-NL → keep defaults */
-    })
+    .catch(function () {})
     .finally(function () {
-      // Apply happens before reveal above, so the reveal shows the final state.
       clearTimeout(timer);
       reveal();
     });

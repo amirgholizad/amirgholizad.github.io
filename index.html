@@ -106,8 +106,6 @@
     </noscript>
   </head>
   <body class="is-loading">
-    <!-- Splash: held until geolocation resolves, so the correct number and
-         location are already applied when the card is revealed (no flash). -->
     <div class="loader" id="loader">
       <span class="loader__ring" aria-hidden="true"></span>
       <span class="loader__label">Loading…</span>
@@ -293,7 +291,7 @@
                 <li>
                   <a
                     id="card-resume"
-                    href="assets/files/Amir_Gholizad_Resume_Toronto.pdf"
+                    href="assets/files/Amir_Gholizad_Resume_1.pdf"
                     target="_blank"
                     rel="noopener"
                   >
@@ -345,7 +343,6 @@
     <script src="script.js"></script>
     <script src="geo.js"></script>
     <script>
-      // Fail-safe: never leave the splash up (e.g. if geo.js fails to load).
       setTimeout(function () {
         document.body.classList.remove("is-loading");
       }, 5000);

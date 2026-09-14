@@ -32,7 +32,7 @@ body {
   background: var(--cream-2);
 }
 
-/* ---------- Loading splash (held until geolocation resolves) ---------- */
+/* ---------- Loading splash ---------- */
 .loader {
   position: fixed;
   inset: 0;

@@ -1,3 +1,8 @@
+// PARKED: geolocation-based localization is disabled for now; the site is
+// St. John's-only and index.html no longer loads this file. To re-enable,
+// uncomment the block below, restore <body class="is-loading"> + the
+// .loader markup, and re-add the <script src="geo.js"> tag in index.html.
+/*
 (function () {
   function reveal() {
     document.body.classList.remove("is-loading");
@@ -13,7 +18,7 @@
   const NL_PHONE_TEXT = "+1 709 691 2883";
   const NL_PHONE_HREF = "tel:+17096912883";
   const NL_LOCATION = "St. John's, NL, Canada";
-  const STJOHNS_RESUME = "assets/files/Amir_Gholizad_Resume_2.pdf";
+  const STJOHNS_RESUME = "assets/files/Amir_Gholizad_Resume.pdf";
 
   function applyNewfoundland() {
     if (phoneEl) {
@@ -59,3 +64,4 @@
       reveal();
     });
 })();
+*/

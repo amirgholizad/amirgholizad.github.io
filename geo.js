@@ -18,7 +18,7 @@
   const NL_PHONE_TEXT = "+1 709 691 2883";
   const NL_PHONE_HREF = "tel:+17096912883";
   const NL_LOCATION = "St. John's, NL, Canada";
-  const STJOHNS_RESUME = "assets/files/Amir_Gholizad_Resume.pdf";
+  const STJOHNS_RESUME = "assets/files/AmirGholizadResume2026.pdf";
 
   function applyNewfoundland() {
     if (phoneEl) {

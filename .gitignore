@@ -1,3 +1,20 @@
 */.DS_Store
 .DS_Store
 .claude/
+# LaTeX build artifacts (keep .tex sources and .pdf outputs)
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.xdv

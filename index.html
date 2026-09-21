@@ -97,23 +97,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <noscript>
-      <style>
-        .loader {
-          display: none !important;
-        }
-      </style>
-    </noscript>
   </head>
-  <!-- Geo-gated reveal parked: <body class="is-loading"> + splash below -->
   <body>
-    <!--
-    <div class="loader" id="loader">
-      <span class="loader__ring" aria-hidden="true"></span>
-      <span class="loader__label">Loading…</span>
-    </div>
-    -->
-
     <!-- Animated cream gradient backdrop -->
     <div class="gradient-bg" aria-hidden="true">
       <span class="blob blob-1"></span>
@@ -183,14 +168,7 @@
                         fill="currentColor"
                       />
                     </svg>
-                    <!-- Toronto default (geo-parked):
-                    <a id="card-phone" href="tel:+16474832883"
-                      >+1 647 483 2883</a
-                    >
-                    -->
-                    <a id="card-phone" href="tel:+17096912883"
-                      >+1 709 691 2883</a
-                    >
+                    <a href="tel:+17096912883">+1 709 691 2883</a>
                   </li>
                   <li>
                     <svg viewBox="0 0 24 24" class="ico" aria-hidden="true">
@@ -210,14 +188,7 @@
                         fill="currentColor"
                       />
                     </svg>
-                    <!-- Toronto default (geo-parked):
-                    <span class="loc-text" id="card-loc"
-                      >Toronto, Ontario, Canada</span
-                    >
-                    -->
-                    <span class="loc-text" id="card-loc"
-                      >St. John's, NL, Canada</span
-                    >
+                    <span class="loc-text">St. John's, NL, Canada</span>
                   </li>
                 </ul>
               </div>
@@ -303,26 +274,6 @@
                 </li>
                 <li>
                   <a
-                    id="card-resume"
-                    href="assets/files/AmirGholizadResume2026.pdf"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <span class="social-ico">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                          d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.6V9h5.4L13 3.6zM8 13h8v1.6H8V13zm0 3.2h8v1.6H8v-1.6zM8 9.8h4v1.6H8V9.8z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
-                    <span class="social-text"
-                      ><b>CV</b><small>View résumé</small></span
-                    >
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="https://sharplines.studio"
                     target="_blank"
                     rel="noopener"
@@ -354,13 +305,5 @@
     <script src="gsap.min.js"></script>
     <script src="logos-data.js"></script>
     <script src="script.js"></script>
-    <!-- Geolocation parked: site is St. John's-only for now.
-    <script src="geo.js"></script>
-    <script>
-      setTimeout(function () {
-        document.body.classList.remove("is-loading");
-      }, 5000);
-    </script>
-    -->
   </body>
 </html>

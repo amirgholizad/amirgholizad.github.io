@@ -2,7 +2,7 @@
 % Author : Amir Gholizad
 % License : MIT
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,10pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -16,6 +16,7 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
+\pdfgentounicode=1
 
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
@@ -69,29 +70,13 @@
 %----------HEADING----------
 \begin{center}
     {\Large \textbf{\scshape Amir Gholizad} $|$ Software Developer}\\[1pt]
-    {\small St. John's, NL, Canada}\\[1pt]
-    {\small +1 709-691-2883 $|$ a.m.gholizad@gmail.com $|$ www.amirg.dev}
+    {\small Toronto, ON, Canada $|$ +1 647-483-2883 $|$ a.m.gholizad@gmail.com $|$ www.amirg.dev}
 \end{center}
 
 %-----------SUMMARY-----------
 \section{Summary}
   \resumeSubHeadingListStart
-    \item{Software Developer and AWS Certified Cloud Practitioner experienced in designing and deploying RESTful APIs and full-stack applications, with a research background in scientific modeling and Machine Learning. Comfortable owning features end to end and shipping reliable, well-tested software to production.}
-  \resumeSubHeadingListEnd
-
-%-----------SKILLS-----------
-\section{Skills}
-  \resumeSubHeadingListStart
-    \item
-    \begin{tabular}{@{}l@{}}
-    \textbf{Languages:} Java, Python, JavaScript, TypeScript, HTML, CSS\\[2pt]
-    \textbf{Front-End:} React.js, Next.js, Redux, TanStack Query\\[2pt]
-    \textbf{Back-End:} Node.js (Express.js, Nest.js), Python (Flask, FastAPI), Java (Spring Boot)\\[2pt]
-    \textbf{Databases:} PostgreSQL, MySQL, MongoDB, Redis\\[2pt]
-    \textbf{Testing:} Pytest, Jest, Playwright (E2E), Storybook\\[2pt]
-    \textbf{DevOps \& Tools:} Docker, GitHub Actions, CI/CD, AWS, Git, Linux (Bash)\\[2pt]
-    \textbf{Other:} OpenAI, Agile (Jira, Scrum)
-    \end{tabular}
+    \item{Software Developer and AWS Certified Cloud Practitioner who ships production software across full-stack web platforms, AI-integrated products, and engineering optimization tools. Owns features end to end, from scoping requirements with clients and stakeholders to shipping tested and reviewed code. Collaborates in distributed teams through code review and Agile processes, presents technical results to non-technical audiences, and has supported hiring of new developers.}
   \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
@@ -99,109 +84,91 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Software Developer Intern}{February 2026 -- Present}
+      {Software Developer (Part-time)}{February 2026 -- Present}
       {Global Maritime}{St. John's, NL, Canada}
       \vspace{0.5pt}
       \resumeItemListStart
-        \resumeItem{Optimized Offshore Support Vessel routing using Python and DFS and Branch-and-Bound methods.}
+        \resumeItem{Optimized offshore vessel routing in Python with DFS and Branch-and-Bound under fuel and scheduling limits.}
         \resumeItem{Refactored simulation workflows with lazy generators, cutting runtime and memory use by more than \textbf{1000X}.}
-        \resumeItem{Modeled vessel scheduling constraints and fuel costs to compare routing plans against baselines.}
-        \resumeItem{Added Pytest regression tests over solver outputs, catching routing errors before simulation runs.}
-      \resumeItemListEnd
-
-        \resumeSubheading
-      {Software Developer}{April 2026 -- August 2026}
-      {SenseNet Inc. (Part-time, Contract)}{Remote, Canada}
-      \vspace{0.5pt}
-      \resumeItemListStart
-        \resumeItem{Developed a full-stack platform using NestJS, TypeORM/PostgreSQL, and React 19.}
-        \resumeItem{Architected a multi-stage async processing pipeline with Bull and Redis, enhancing content automation.}
-        \resumeItem{Designed REST endpoints and TypeORM migrations backing the platform's core content models.}
-        \resumeItem{Added retry and failure handling to queued jobs, keeping the pipeline recoverable under load.}
+        \resumeItem{Presented routing results to marine operations staff and managers, turning solver output into schedule decisions.}
+        \resumeItem{Standardized contributions to the Azure DevOps repository with pre-commit hooks, a pull request template, and licensing.}
+        \resumeItem{Supported the hiring team in recruiting new software developers, from screening candidates to technical interviews.}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Full-Stack Developer Intern}{June 2025 -- August 2025}
+      {Full-Stack Developer (Part-time, Contract)}{April 2026 -- August 2026}
+      {SenseNet Inc.}{Remote, Canada}
+      \vspace{0.5pt}
+      \resumeItemListStart
+        \resumeItem{Built a full-stack AI based content aggregation platform with GPT-Nano, NestJS, TypeORM/PostgreSQL, and React 19.}
+        \resumeItem{Architected a multi-stage async pipeline on Bull and Redis with retries, keeping jobs recoverable under load.}
+        \resumeItem{Managed and developed the entire SDLC through Scrum, from backlog grooming and sprints to code review and release.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Co-Founder \& Web Developer}{July 2025 -- Present}
+      {Sharplines Studio}{Remote, Canada}
+      \vspace{0.5pt}
+      \resumeItemListStart
+        \resumeItem{Co-founded a web design studio building sites for local businesses, from first client meeting to launch.}
+        \resumeItem{Scoped and delivered multiple paid client websites, gathering requirements from owners and iterating on feedback.}
+        \resumeItem{Sample work: wheeldealnl.com (Next.js, Tailwind CSS, Vercel) and provolta.ca (Astro, Netlify, \textbf{4} languages).}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Full-Stack Developer (Internship)}{June 2025 -- August 2025}
       {Deepflow Labs}{Remote, USA}
       \vspace{0.5pt}
       \resumeItemListStart
-        \resumeItem{Built a full-stack social media app clone with Next.js, Postgres, and RadixUI.}
+        \resumeItem{Built a full-stack social media app with Next.js server components, Postgres, and RadixUI (auth, feed, profiles).}
         \resumeItem{Extracted shared UI and database packages into a Turborepo monorepo, reused across \textbf{3} projects.}
-        \resumeItem{Implemented authentication, feed, and profile flows with Next.js server components.}
-        \resumeItem{Documented shared components in Storybook and wired CI checks across the monorepo.}
+        \resumeItem{Documented shared components in Storybook and wired CI checks so teammates could adopt them via PRs.}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Data Science Researcher}{September 2022 -- November 2024}
+      {Data Scientist (Research Assistant)}{September 2022 -- November 2024}
       {Memorial University of Newfoundland}{St. John's, NL, Canada}
       \vspace{0.5pt}
       \resumeItemListStart
-        \resumeItem{Estimated statistical potential functions on financial time-series data with Pandas and Scikit-learn.}
-        \resumeItem{Built Postgres/SQLAlchemy ETL pipelines over 5M+ rows, reducing original processing time by \textbf{80\%}.}
-        \resumeItem{Validated model fits with cross-validation and bootstrapped confidence intervals.}
-        \resumeItem{Automated reproducible analysis notebooks and Matplotlib reporting for research reviews.}
+        \resumeItem{Built Postgres/SQLAlchemy ETL pipelines over \textbf{5M+} rows of financial data, cutting processing time by \textbf{80\%}.}
+        \resumeItem{Built a statistical model for financial time series using Python and presented findings to the research group.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
-\newpage
-
-%-----------PROJECTS-----------
-\section{Projects}
+%-----------SKILLS-----------
+\section{Skills}
   \resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Wheel Deal Driver Training}{2026}
-      {Next.js, TypeScript, Tailwind CSS, Vercel}{wheeldealnl.com}
-      \vspace{0.5pt}
-      \resumeItemListStart
-        \resumeItem{Built and shipped a 5-page site for a driving school with the Next.js App Router and Tailwind CSS.}
-        \resumeItem{Added an accessible contact form with client-side validation and honeypot spam filtering.}
-        \resumeItem{Deployed on Vercel with static prerendering, image and font optimization, and JSON-LD local SEO.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Provolta Electric}{2026}
-      {Astro, JavaScript, Netlify}{provolta.ca}
-      \vspace{0.5pt}
-      \resumeItemListStart
-        \resumeItem{Built a static marketing site for an electrical contractor with Astro and scoped component CSS.}
-        \resumeItem{Templated \textbf{20} service-area and service landing pages, localized across \textbf{4} languages.}
-        \resumeItem{Wired quote forms with file upload via Netlify Forms, plus geo and hours structured data.}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-%-----------AWARDS-----------
-\section{Awards}
-  \resumeSubHeadingListStart
-
-    \resumeProjectHeading
-        {\textbf{Autonomous Robot} $|$ {Python, OpenCV, Raspberry Pi}}{2025}
-        \resumeItemListStart
-          \resumeItem{Built an autonomous robot with real-time image detection and a 3D-printed chassis.}
-          \resumeItem{ Won the People's Choice Award at the Hackfrost NL \& DO IT Hackathon.}
-        \resumeItemListEnd
-
+    \item
+    \begin{tabular}{@{}l@{}}
+    \textbf{Languages:} Python, TypeScript, JavaScript, Java, SQL, HTML, CSS\\[2pt]
+    \textbf{Frameworks:} React.js, Next.js, Node.js (Express.js, Nest.js), FastAPI, Flask, Spring Boot\\[2pt]
+    \textbf{Databases:} PostgreSQL, MySQL, MongoDB, Redis\\[2pt]
+    \textbf{DevOps:} Docker, GitHub Actions, Azure DevOps, CI/CD, AWS, Git, Linux\\[2pt]
+    \textbf{Testing:} Pytest, Jest, Playwright, Storybook\\[2pt]
+    \textbf{Practices:} REST API design, Agile (Scrum, Jira), Code Review
+    \end{tabular}
   \resumeSubHeadingListEnd
 
 %-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
-    \resumeSubheading
-      {BrainStation}{Toronto, ON, Canada}
-      {Diploma in Software Engineering, GPA: 92\%}{2024 -- 2025}
-      \vspace{1pt}
-    \resumeSubheading
-      {Memorial University of Newfoundland}{St. John's, NL, Canada}
-      {M.Sc. Physics, GPA: 81\%}{2022 -- 2024}
+    \resumeProjectHeading % date and row break live in arg 1 so the description gets its own small second row
+        {\textbf{Diploma in Software Engineering}, BrainStation, GPA: 92\% & {\small 2024 -- 2025} \\
+         \footnotesize (Full-Stack Software Development Bootcamp)}{}
+        \vspace{4pt}
+    \resumeProjectHeading
+        {\textbf{M.Sc. Physics}, Memorial University of Newfoundland, St. John's, GPA: 81\%}{2022 -- 2024}
   \resumeSubHeadingListEnd
+  \vspace{-3pt} % measured: without this the last heading's trailing -7pt leaves a 10pt gap; this restores the ~17pt used between every other section
 
-%-----------CERTIFICATIONS-----------
-\section{Certifications}
+%-----------AWARDS & CERTIFICATIONS-----------
+\section{Awards \& Certifications}
   \resumeSubHeadingListStart
     \resumeProjectHeading
         {\textbf{AWS Certified Cloud Practitioner}}{2024 -- 2027}
+    \resumeProjectHeading
+        {\textbf{People's Choice Award} (Hackfrost NL \& DO IT Hackathon)}{2025}
   \resumeSubHeadingListEnd
 
 \end{document}

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amirgholizad.github.io/sitemap.xml
+Sitemap: https://amirg.dev/sitemap.xml

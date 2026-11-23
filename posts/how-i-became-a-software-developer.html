@@ -70,9 +70,24 @@
     <div class="reader glass">
       <article class="reader-scroll">
         <a class="back" href="../blog.html"><span aria-hidden="true">←</span> All posts</a>
-        <span class="post-meta"><time datetime="2026-11-22">Nov 22, 2026</time> · 4 min read</span>
+        <span class="post-meta"><time datetime="2026-11-22">Nov 22, 2026</time> · 4 min read · 5 min listen</span>
         <h1>How I became a <em>software developer.</em></h1>
         <p class="dek">From a first-year C++ course to routing supply ships with search algorithms, and why I believe anyone can teach themselves to code.</p>
+
+        <!-- Audio version. data-chapters = start time (seconds) of the intro and of each <h2> section, in order. -->
+        <div class="listen" data-duration="311" data-chapters="0,25,62,105,136,172,236,268">
+          <audio src="audio/how-i-became-a-software-developer.mp3" preload="metadata" controls></audio>
+          <div class="listen-ui">
+            <button class="play" type="button" aria-label="Play the audio version">
+              <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+              <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h3v11H4zM9 2.5h3v11H9z" fill="currentColor"/></svg>
+            </button>
+            <div class="listen-body">
+              <div class="listen-top"><span class="listen-title">Listen to this post</span><span class="listen-time">5:11</span></div>
+              <div class="track" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="311" aria-valuenow="0"><div class="fill"></div></div>
+            </div>
+          </div>
+        </div>
 
         <!-- Cover: replace the <svg> with <img src="../images/your-photo.jpg" alt="..."> when you have a photo -->
         <div class="cover">
@@ -133,5 +148,6 @@
   </main>
 
 </div>
+<script src="../player.js"></script>
 </body>
 </html>

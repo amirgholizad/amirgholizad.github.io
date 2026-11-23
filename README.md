@@ -2,7 +2,7 @@
 
 Personal site of Amir Gholizad, software developer and co-founder of [Sharplines Studio](https://sharplines.ca).
 
-It's a small static site built with plain HTML and CSS. There's no framework, no build step and no dependencies. Every page fits the screen without scrolling; long blog posts scroll inside their own reading window.
+It's a small static site built with plain HTML and CSS, plus one small script for the blog's audio player. There's no framework, no build step and no dependencies. Every page fits the screen without scrolling; long blog posts scroll inside their own reading window.
 
 | File | Purpose |
 |---|---|
@@ -10,7 +10,8 @@ It's a small static site built with plain HTML and CSS. There's no framework, no
 | `about.html` | About: short bio and facts |
 | `work.html` | Work: career journey drawn as a winding road |
 | `blog.html` | Blog: a grid of square post cards, newest first |
-| `posts/` | One HTML file per post; the article scrolls inside a glass reading window |
+| `posts/` | One HTML file per post; the article scrolls inside a glass reading window. Audio versions live in `posts/audio/` |
+| `player.js` | Audio player for posts that have an audio version |
 | `contact.html` | Contact: email and links |
 | `style.css` | All styles. The page entrance timing (`--t-bg`, `--t-head`, `--t-text`) is at the bottom |
 | `photo.jpg` | Black-and-white portrait on a pure black backdrop, landscape (2000×1333) |
@@ -38,6 +39,7 @@ GitHub Pages serves the root of the `main` branch ("Deploy from a branch") at <h
 2. In `blog.html`, copy the `<li>` card at the top of the `.posts` list and point it at the new file.
 3. To use a photo as a cover, put it in the repo and replace the `<svg>` inside `.cover` with `<img src="..." alt="...">`. Inside an article, use `<figure><img src="..." alt="..."><figcaption>...</figcaption></figure>`.
 4. Add the new post's URL to `sitemap.xml`.
+5. Optional audio version: put the MP3 in `posts/audio/`, copy the `.listen` block and the `<script src="../player.js">` tag from the first post, and set `data-duration` (seconds) and `data-chapters` (the start second of the intro and of each `<h2>` section, in order). Mark the card in `blog.html` with "· Audio".
 
 ## SEO
 

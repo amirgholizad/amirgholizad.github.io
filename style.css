@@ -204,16 +204,20 @@ body.page::before{content:"";position:fixed;inset:0;pointer-events:none;backgrou
 }
 
 /* =========================================================
-   Page entrance, on every page:
-   1) background  2) headline  3) everything else, in order.
-   Change the three start times to make it faster or slower.
+   Page entrance
+   Home:        1) photo (nav fades in with it)  2) headline  3) everything else.
+   Inner pages: the nav is there instantly, so it feels like it never
+                changes between pages; then 1) gradient  2) headline
+                3) everything else.
+   Change the start times to make it faster or slower.
    Uses fill-mode "backwards" so hover effects still work afterwards.
    ========================================================= */
 :root{--ease:cubic-bezier(.22,1,.36,1);--t-bg:0s;--t-head:1.2s;--t-text:2.1s}
+body.page{--t-bg:.35s;--t-head:1.5s;--t-text:2.4s}
 @media(prefers-reduced-motion:no-preference){
   /* 1. background: the photo on home, the gradient on inner pages */
   .portrait,body.page::before{animation:bg-in 2.6s var(--ease) var(--t-bg) backwards}
-  .nav{animation:fade-in 1.6s var(--ease) calc(var(--t-bg) + .6s) backwards}
+  body:not(.page) .nav{animation:fade-in 1.6s var(--ease) calc(var(--t-bg) + .6s) backwards}
   /* 2. headline */
   .kicker,h1{animation:head-in 1.6s var(--ease) var(--t-head) backwards}
   /* 3. text and the rest */

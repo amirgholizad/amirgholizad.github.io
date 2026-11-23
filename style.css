@@ -144,7 +144,7 @@ body.page::before{content:"";position:fixed;inset:0;pointer-events:none;backgrou
 .road path{fill:none;stroke-linecap:round}
 .road .bed{stroke:rgba(255,255,255,.05);stroke-width:22}
 .road-v .bed{stroke-width:14}
-.road .line{stroke-width:3;filter:drop-shadow(0 0 6px rgba(184,140,255,.5))}
+.road .line{stroke-width:3;filter:drop-shadow(0 0 6px rgba(255,160,70,.45))}
 .road .next{stroke-width:2;stroke-dasharray:1 8}
 .stops{list-style:none}
 /* each stop is a point on the road; --x/--y match the path's coordinates */

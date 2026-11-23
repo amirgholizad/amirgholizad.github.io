@@ -90,6 +90,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  /* Hold the entrance until the photo is ready (see style.css). The text
+     never waits more than 2.5s; the photo always waits for itself. */
+  (function(r){r.classList.add('hold','hold-photo');
+    setTimeout(function(){r.classList.remove('hold')},2500)})(document.documentElement);
+</script>
 </head>
 <body>
 <div class="stage">
@@ -109,6 +115,10 @@
   <div class="portrait">
     <div class="layer"><img src="photo.jpg" width="2000" height="1333" fetchpriority="high" alt="Portrait of Amir Gholizad, software developer and web designer"></div>
   </div>
+  <script>
+    (function(img){function go(){document.documentElement.classList.remove('hold','hold-photo')}
+      img.decode?img.decode().then(go,go):go()})(document.querySelector('.layer img'));
+  </script>
 
   <main class="hero">
     <h1><span class="kicker">Amir Gholizad</span>Design <em>that speaks,</em><br>Code <em>that makes a difference.</em></h1>

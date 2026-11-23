@@ -1,6 +1,6 @@
 :root{
   --bg:#000; --ink:#f5f5f7; --muted:rgba(245,245,247,.62); --accent:#ffb48a;
-  --sans:'Inter Tight',system-ui,sans-serif; --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Nunito',system-ui,sans-serif; --serif:'Instrument Serif',Georgia,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
@@ -89,7 +89,8 @@ h1 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:
   .foot{display:flex;left:30px;right:30px;bottom:28px;z-index:11;padding:0;gap:6px;background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
   .foot::before{display:none}
   .foot a{padding:6px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:12.5px}
-  .nav a.l{padding:8px 11px;font-size:13px}
+  .nav{gap:3px}
+  .nav a.l{padding:8px 8px;font-size:13px}
   .nav .logo{width:34px;height:34px}
 }
 

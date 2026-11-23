@@ -160,13 +160,15 @@ body.page::before{content:"";position:fixed;inset:0;pointer-events:none;backgrou
 .org{margin-top:3px;font-size:13px;color:rgba(245,245,247,.8)}
 .note{margin-top:8px;font-size:12.5px;line-height:1.5;color:var(--muted)}
 
-/* arrival: the road draws in, then each stop appears in order */
+/* arrival: the dots pop in, then their details, then the road draws through them */
 @media(prefers-reduced-motion:no-preference){
-  .road-h{animation:draw 2.2s cubic-bezier(.65,0,.35,1) calc(var(--t-text) + .1s) backwards}
-  .road-v{animation:drawv 2.2s cubic-bezier(.65,0,.35,1) calc(var(--t-text) + .1s) backwards}
-  .stop{animation:rise 1.2s var(--ease) calc(var(--t-text) + .4s + var(--i) * .25s) backwards}
-  .now .dot::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:1px solid var(--c);animation:ping 2.4s ease-out calc(var(--t-text) + 2.6s) infinite}
+  .dot{animation:pop .7s cubic-bezier(.34,1.56,.64,1) calc(var(--t-text) + var(--i) * .14s) backwards}
+  .label{animation:rise 1s var(--ease) calc(var(--t-text) + .8s + var(--i) * .14s) backwards}
+  .road-h{animation:draw 2s cubic-bezier(.65,0,.35,1) calc(var(--t-text) + 1.9s) backwards}
+  .road-v{animation:drawv 2s cubic-bezier(.65,0,.35,1) calc(var(--t-text) + 1.9s) backwards}
+  .now .dot::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:1px solid var(--c);animation:ping 2.4s ease-out calc(var(--t-text) + 4s) infinite}
 }
+@keyframes pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
 @keyframes draw{from{clip-path:inset(-50% 100% -50% 0)}to{clip-path:inset(-50% 0 -50% 0)}}
 @keyframes drawv{from{clip-path:inset(0 -50% 100% -50%)}to{clip-path:inset(0 -50% 0 -50%)}}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}

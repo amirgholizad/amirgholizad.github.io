@@ -2,14 +2,15 @@
 
 Personal site of Amir Gholizad, software developer and co-founder of [Sharplines Studio](https://sharplines.ca).
 
-It's a small static site built with plain HTML, CSS and JavaScript. There's no framework, no build step and no dependencies. Every page fits the screen without scrolling.
+It's a small static site built with plain HTML, CSS and JavaScript. There's no framework, no build step and no dependencies. Every page fits the screen without scrolling; long blog posts scroll inside their own reading window.
 
 | File | Purpose |
 |---|---|
 | `index.html` | Home: headline over the portrait |
 | `about.html` | About: short bio and facts |
 | `work.html` | Work: career journey drawn as a winding road |
-| `blog.html` | Blog (empty for now) |
+| `blog.html` | Blog: a grid of square post cards, newest first |
+| `posts/` | One HTML file per post; the article scrolls inside a glass reading window |
 | `contact.html` | Contact: email and links |
 | `style.css` | All styles. The page entrance timing (`--t-bg`, `--t-head`, `--t-text`) is at the bottom |
 | `script.js` | Shows a placeholder frame until `photo.jpg` exists |
@@ -28,3 +29,9 @@ Then open <http://localhost:8000>.
 ## Deploy
 
 GitHub Pages serves the root of the `main` branch ("Deploy from a branch") at <https://amirg.dev>. Pushing to `main` publishes the site. All paths are relative, so it also works under a project URL like `username.github.io/repo-name/`.
+
+## Adding a blog post
+
+1. Copy `posts/how-i-became-a-software-developer.html` to a new file in `posts/` and replace the title, date, reading time and article text.
+2. In `blog.html`, copy the `<li>` card at the top of the `.posts` list and point it at the new file.
+3. To use a photo as a cover, put it in the repo and replace the `<svg>` inside `.cover` with `<img src="..." alt="...">`. Inside an article, use `<figure><img src="..." alt="..."><figcaption>...</figcaption></figure>`.

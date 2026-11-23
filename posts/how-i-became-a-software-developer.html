@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How I became a software developer — Amir Gholizad</title>
+<meta name="description" content="From a first-year C++ course to routing supply ships with search algorithms, and why I believe anyone can teach themselves to code.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23f5f5f7'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='system-ui,sans-serif' font-size='26' font-weight='700' fill='%230a0a0f'%3EAG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="page">
+<div class="stage">
+
+  <header>
+    <nav class="nav glass" aria-label="Main">
+      <a class="logo" href="../" aria-label="Home">AG</a>
+      <a class="l" href="../">Home</a>
+      <a class="l" href="../about.html">About</a>
+      <a class="l" href="../work.html">Work</a>
+      <a class="l on" href="../blog.html">Blog</a>
+      <a class="l" href="../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="reader-wrap">
+    <div class="reader glass">
+      <article class="reader-scroll">
+        <a class="back" href="../blog.html"><span aria-hidden="true">←</span> All posts</a>
+        <span class="post-meta"><time datetime="2026-11-22">Nov 22, 2026</time> · 4 min read</span>
+        <h1>How I became a <em>software developer.</em></h1>
+        <p class="dek">From a first-year C++ course to routing supply ships with search algorithms, and why I believe anyone can teach themselves to code.</p>
+
+        <!-- Cover: replace the <svg> with <img src="../images/your-photo.jpg" alt="..."> when you have a photo -->
+        <div class="cover">
+          <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <linearGradient id="p1" gradientUnits="userSpaceOnUse" x1="28" y1="0" x2="292" y2="0">
+                <stop offset="0" stop-color="#ffcf5c"/><stop offset=".5" stop-color="#ff8c3a"/><stop offset="1" stop-color="#f04438"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 138 C72 138 72 62 116 62 C160 62 160 122 204 122 C248 122 248 44 292 44" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="14" stroke-linecap="round"/>
+            <path d="M28 138 C72 138 72 62 116 62 C160 62 160 122 204 122 C248 122 248 44 292 44" fill="none" stroke="url(#p1)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="28" cy="138" r="5" fill="#0d0b0a" stroke="#ffcf5c" stroke-width="2"/>
+            <circle cx="116" cy="62" r="5" fill="#0d0b0a" stroke="#ffa043" stroke-width="2"/>
+            <circle cx="204" cy="122" r="5" fill="#0d0b0a" stroke="#fb7339" stroke-width="2"/>
+            <circle cx="292" cy="44" r="6" fill="#f04438"/>
+          </svg>
+        </div>
+
+        <div class="prose">
+          <p>I didn't grow up wanting to be a programmer. Until my first year of university, I had no idea what software was, what code was, or why anyone would enjoy writing it. This is the story of how that changed.</p>
+
+          <h2>A C++ class that changed everything</h2>
+          <p>In the second semester of my physics bachelor's at Amirkabir University of Technology, I took a C++ course. Up to then I didn't like programming, mostly because I didn't understand it. Somewhere in that semester, that flipped. I fell in love with coding and with actually building things, and I finished the course as the top student in the class.</p>
+          <p>From then on, one idea stayed with me all the way through my bachelor's and master's: I could do physics and programming at the same time.</p>
+
+          <h2>Bridging physics and code</h2>
+          <p>My first simulations were in Maple. It isn't really a programming language, but it taught me how to turn physics into something a computer can run. I needed a real language for science, so I learned Fortran. Plenty of scientists still use it, but I found it painful and wanted something with a much bigger community, so I switched to Python.</p>
+          <p>Python opened everything up. After a few scientific projects, I started using it to build trading bots. In the last couple of years of my bachelor's I built one based on the ACD trading method and connected it to MetaTrader 5 over a WebSocket, so it could run the model on real-time market data.</p>
+
+          <h2>Physics meets finance</h2>
+          <p>During my master's at Memorial University, I met a professor in the business department who used physics and mathematics to study finance. The field is called econophysics: it takes models built for physical systems, like Brownian motion, and applies them to financial markets.</p>
+          <p>That became my thesis. I worked on finding the quantum potential functions of financial markets, and on the correlations between technical indicators built on top of them.</p>
+
+          <h2>From coder to developer</h2>
+          <p>Toward the end of my master's, I realized I wanted more than writing code for research. I wanted to build software. I spent a couple of months earning my AWS certification, and right after graduating I joined BrainStation's Software Engineering bootcamp.</p>
+          <p>That's where I really learned software development: HTML, CSS and JavaScript, mock-ups and style guides, then React, Express, MySQL and deployment. We even built a tiny version of React to understand how dynamic DOM updates work.</p>
+
+          <h2>Building real software</h2>
+          <p>After the bootcamp I was lucky to land an internship at Deepflow Labs. I picked up Next.js, Supabase and Tailwind, and built reusable components and packages for the monorepo the team was creating.</p>
+          <p>A few months later I was back in Python at Global Maritime, working on an NP-hard problem: routing and scheduling offshore supply vessels. Most approaches rely on discrete-time simulation. I built a search algorithm instead, combining depth-first search, branch and bound and a few tricks, so it can solve real-world cases with real fleets and platforms. I've been on that project for most of this year, with a few more months to go.</p>
+          <p>Because that role is part-time, I also helped SenseNet build an AI-powered content aggregation platform. It uses GPT Nano with a NestJS backend and a Bull and Redis job pipeline that runs every few minutes to gather, deduplicate and store updates. We shipped the whole platform with Docker.</p>
+
+          <h2>Starting Sharplines</h2>
+          <p>I'd been building websites for people I knew for a while. Toward the end of the SenseNet project, my friend Arya and I merged our client work into a design studio: Sharplines Studio. Technical conversations can be hard for clients, so we keep the process simple and fast, and we've built internal tools and pipelines to streamline building and shipping every site. We've worked with a few clients so far, and we're about to launch our first product. That's a story for another post.</p>
+
+          <h2>What I've learned</h2>
+          <p>I started coding before AI tools were part of the picture, and it has been a great journey. I don't see myself as a senior developer; I'm happy to say I'm still a junior one. But I believe <strong>anyone can learn to program on their own.</strong></p>
+          <blockquote>Don't just focus on your coursework. Build things, build cool stuff, and stay curious.</blockquote>
+          <p>Right now I'm learning Go, simply because I was curious about a fast, compiled language made for backend services. That's the part I love most: the learning never ends. AI shouldn't take that away from us. The learning, the enjoyment and the problem-solving are what matter, and my journey is still going.</p>
+        </div>
+
+        <footer class="post-end">
+          <a href="../blog.html"><span aria-hidden="true">←</span> All posts</a>
+          <a href="../contact.html">Say hi <span aria-hidden="true">→</span></a>
+        </footer>
+      </article>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

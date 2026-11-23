@@ -42,10 +42,6 @@ header{position:absolute;top:22px;left:0;right:0;display:flex;justify-content:ce
 .layer{position:absolute;inset:0;overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%);mask-image:linear-gradient(90deg,transparent 0,#000 16%)}
 .layer img{position:absolute;left:58%;top:0;height:100%;width:auto;max-width:none;transform-origin:50% 31%;transform:translateX(-50%) scale(1.12)}
-.portrait .ph{display:none;position:absolute;right:12%;bottom:0;width:min(30vw,420px);aspect-ratio:3/4;border:1.5px dashed rgba(255,255,255,.3);border-bottom:0;border-radius:28px 28px 0 0;place-items:center;text-align:center;color:var(--muted);font-size:14px;line-height:1.6}
-.portrait.missing .layer{display:none}
-.portrait.missing .ph{display:grid}
-.ph b{display:block;color:#fff;font-weight:600;font-size:16px}
 
 /* hero copy */
 .hero{position:relative;z-index:10;height:100%;display:flex;flex-direction:column;justify-content:center;padding:96px 0 40px clamp(24px,7vw,120px);max-width:min(700px,48vw)}
@@ -111,6 +107,10 @@ body.page::before{content:"";position:fixed;inset:0;pointer-events:none;backgrou
 .page h1{font-size:clamp(2.3rem,3.9vw,3.9rem)}
 .page .lede{margin-top:20px}
 .lede .hl{color:var(--ink)}
+/* text links: About lede, Work labels, blog posts */
+.lede a,.prose a{border-bottom:1px solid rgba(255,255,255,.28);transition:color .2s,border-color .2s}
+.lede a:hover,.prose a:hover,.org a:hover{color:var(--accent);border-color:var(--accent)}
+.org a{transition:color .2s}
 .split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,6vw,104px);align-items:center}
 
 /* label / value rows on a glass card (About facts, Contact links) */
@@ -282,6 +282,7 @@ body.page{--t-bg:.35s;--t-head:1.5s;--t-text:2.4s}
   body:not(.page) .nav{animation:fade-in 1.6s var(--ease) calc(var(--t-bg) + .6s) backwards}
   /* 2. headline */
   .kicker,h1{animation:head-in 1.6s var(--ease) var(--t-head) backwards}
+  h1 .kicker{animation:none} /* home: the name sits inside the h1 and arrives with it */
   /* 3. text and the rest */
   .lede,.tags li{animation:text-in 1.4s var(--ease) var(--t-text) backwards}
   .tags li:nth-child(2){animation-delay:calc(var(--t-text) + .12s)}

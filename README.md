@@ -9,11 +9,13 @@ It's a small static site built with plain HTML and CSS, plus one small script fo
 | `index.html` | Home: headline over the portrait |
 | `about.html` | About: short bio and facts |
 | `work.html` | Work: career journey drawn as a winding road |
+| `open-source.html` | Open source: a card per project with a screenshot, a live demo link and a source link |
+| `img/` | Project screenshots for the Open source page |
 | `blog.html` | Blog: a grid of square post cards, newest first |
 | `posts/` | One HTML file per post; the article scrolls inside a glass reading window. Audio versions live in `posts/audio/` |
 | `player.js` | Audio player for posts that have an audio version |
 | `contact.html` | Contact: email and links |
-| `style.css` | All styles. The page entrance timing (`--t-bg`, `--t-head`, `--t-text`) is at the bottom |
+| `style.css` | All styles. The page entrance timing (start times `--t-*` and durations `--d-*`) is at the bottom |
 | `photo.jpg` | Black-and-white portrait on a pure black backdrop, landscape (2000×1333) |
 | `og-image.jpg` | Link preview card (1200×630) used by Google, LinkedIn, X, Slack, etc. |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Site icons (Google shows the favicon next to search results) |
@@ -32,6 +34,14 @@ Then open <http://localhost:8000>.
 ## Deploy
 
 GitHub Pages serves the root of the `main` branch ("Deploy from a branch") at <https://amirg.dev>. Pushing to `main` publishes the site. Links between pages are relative, so it also works under a project URL like `username.github.io/repo-name/`. Canonical URLs, Open Graph tags and structured data use absolute `https://amirg.dev/...` URLs on purpose.
+
+## Adding an open-source project
+
+1. Save a screenshot in `img/` as a JPG about 960px wide. A 16:10 image crops best; the card trims the edges to fit.
+2. In `open-source.html`, copy one `<li class="project">` card and change the screenshot, the meta line (license and stack), the name, a one-sentence description (keep it to about two lines so the page still fits short screens), and the demo and source links. If a project has no live demo, delete that link.
+3. In the same file's `<head>`, add a matching `ListItem` to the JSON-LD list.
+
+Up to three projects fit on one row on desktop (two on smaller laptops and tablets). On phones the cards become compact rows. Beyond what fits, the content scrolls inside the page like on the other pages, so once there are more than three or four projects the cards will need a more compact layout.
 
 ## Adding a blog post
 

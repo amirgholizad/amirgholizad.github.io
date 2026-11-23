@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open Source — Amir Gholizad, Software Developer &amp; Web Designer</title>
+<meta name="description" content="Free, MIT-licensed projects by Amir Gholizad, software developer, web designer and co-founder of Sharplines Studio: an animated 3D business card and Tilefolio, a live-tile portfolio template.">
+<meta name="author" content="Amir Gholizad">
+<link rel="canonical" href="https://amirg.dev/open-source.html">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amir Gholizad">
+<meta property="og:title" content="Open Source — Amir Gholizad, Software Developer &amp; Web Designer">
+<meta property="og:description" content="Templates and tools I've built and shared. Free to use, change and ship.">
+<meta property="og:url" content="https://amirg.dev/open-source.html">
+<meta property="og:image" content="https://amirg.dev/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Amir Gholizad: software developer, web designer and co-founder of Sharplines">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://amirg.dev/open-source.html#page",
+  "url": "https://amirg.dev/open-source.html",
+  "name": "Open Source — Amir Gholizad",
+  "inLanguage": "en",
+  "isPartOf": { "@id": "https://amirg.dev/#website" },
+  "author": {
+    "@type": "Person",
+    "@id": "https://amirg.dev/#person",
+    "name": "Amir Gholizad",
+    "url": "https://amirg.dev/",
+    "jobTitle": ["Software Developer", "Web Designer", "Co-founder of Sharplines Studio"],
+    "sameAs": ["https://github.com/AmirGholizad", "https://www.linkedin.com/in/amirgholizad/"]
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "SoftwareSourceCode",
+          "name": "Business Card",
+          "description": "An animated 3D business card that works as a personal landing page. No build step; host it on GitHub Pages.",
+          "url": "https://amirgholizad.github.io/business-card/",
+          "codeRepository": "https://github.com/AmirGholizad/business-card",
+          "image": "https://amirg.dev/img/business-card.jpg",
+          "license": "https://opensource.org/licenses/MIT",
+          "programmingLanguage": ["HTML", "CSS", "JavaScript"],
+          "author": { "@id": "https://amirg.dev/#person" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "SoftwareSourceCode",
+          "name": "Tilefolio",
+          "description": "A Windows Phone style portfolio template with live tiles. One content file, no build step.",
+          "url": "https://amirgholizad.github.io/tilefolio/",
+          "codeRepository": "https://github.com/AmirGholizad/tilefolio",
+          "image": "https://amirg.dev/img/tilefolio.jpg",
+          "license": "https://opensource.org/licenses/MIT",
+          "programmingLanguage": ["HTML", "CSS", "JavaScript"],
+          "author": { "@id": "https://amirg.dev/#person" }
+        }
+      }
+    ]
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+<div class="stage">
+
+  <header>
+    <nav class="nav glass" aria-label="Main">
+      <a class="logo" href="./" aria-label="Amir Gholizad, home">AG</a>
+      <a class="l" href="./">Home</a>
+      <a class="l" href="about.html">About</a>
+      <a class="l" href="work.html">Work</a>
+      <a class="l on" href="open-source.html" aria-current="page">Open source</a>
+      <a class="l" href="blog.html">Blog</a>
+      <a class="l" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <div class="wrap">
+      <div class="work-head">
+        <div>
+          <span class="kicker">Open source</span>
+          <h1>Built in <em>the open.</em></h1>
+          <p class="lede">Templates and tools I've made and shared. Free to use, change and ship.</p>
+        </div>
+        <div class="pills">
+          <a class="btn g glass" href="https://github.com/AmirGholizad?tab=repositories" target="_blank" rel="me noopener">All repos on GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <!-- One <li> per project. Screenshots live in img/ (16:10 crops best).
+           Also add the project to the JSON-LD list in <head> and to README.md. -->
+      <ul class="projects">
+        <li class="project glass">
+          <a class="shot" href="https://amirgholizad.github.io/business-card/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/business-card.jpg" width="960" height="504" alt="">
+          </a>
+          <div class="project-info">
+            <span class="post-meta">MIT · HTML · GSAP</span>
+            <h2>Business Card</h2>
+            <p>An animated 3D business card that works as a personal landing page.</p>
+            <div class="project-links">
+              <a href="https://amirgholizad.github.io/business-card/" target="_blank" rel="noopener">Live demo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/AmirGholizad/business-card" target="_blank" rel="noopener">Source <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="project glass">
+          <a class="shot" href="https://amirgholizad.github.io/tilefolio/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/tilefolio.jpg" width="960" height="600" alt="">
+          </a>
+          <div class="project-info">
+            <span class="post-meta">MIT · Vanilla JS</span>
+            <h2>Tilefolio</h2>
+            <p>A Windows Phone style portfolio with live tiles, all from one content file.</p>
+            <div class="project-links">
+              <a href="https://amirgholizad.github.io/tilefolio/" target="_blank" rel="noopener">Live demo <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/AmirGholizad/tilefolio" target="_blank" rel="noopener">Source <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

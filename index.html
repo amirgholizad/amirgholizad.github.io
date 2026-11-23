@@ -111,8 +111,10 @@
     <div class="layer"><img src="photo.jpg" width="2000" height="1333" fetchpriority="high" alt="Portrait of Amir Gholizad, software developer and web designer"></div>
   </div>
   <script>
-    /* fade the photo in over its preview once it is loaded and decoded */
-    (function(img){function show(){img.parentNode.classList.add('in')}
+    /* fade the photo in over its preview once it is loaded and decoded; wait
+       for a frame first so the fade still plays when the photo is cached */
+    (function(img){function show(){requestAnimationFrame(function(){
+        requestAnimationFrame(function(){img.parentNode.classList.add('in')})})}
       function onLoad(){img.complete&&img.naturalWidth?show():img.addEventListener('load',show)}
       img.decode?img.decode().then(show,onLoad):onLoad()})(document.querySelector('.layer img'));
   </script>
